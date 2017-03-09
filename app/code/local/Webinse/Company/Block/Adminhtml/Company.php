@@ -11,7 +11,7 @@
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
 /**
- * Resource model Company
+ * Adminhtml grid container block
  *
  * @category    Webinse
  * @package     Webinse_Company
@@ -19,10 +19,19 @@
  * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
-class Webinse_Company_Model_Resource_Company extends Mage_Core_Model_Resource_Db_Abstract
+class Webinse_Company_Block_Adminhtml_Company extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
-    protected function _construct()
+    protected $_blockGroup = 'webinse_company';
+
+    public function __construct()
     {
-        $this->_init('webinse_company/company', 'entity_id');
+        $this->_controller = 'adminhtml_company';
+        $helper = Mage::helper('webinse_company');
+
+        $this->_headerText     = $helper->__('Company Manager');
+        $this->_addButtonLabel = $helper->__('Add new company');
+
+        parent::__construct();
     }
+
 }

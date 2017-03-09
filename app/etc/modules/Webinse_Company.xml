@@ -15,7 +15,7 @@
     <modules>
         <Webinse_Company>
             <active>true</active>
-            <codePool>community</codePool>
+            <codePool>local</codePool>
         </Webinse_Company>
     </modules>
 </config>

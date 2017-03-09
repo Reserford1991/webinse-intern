@@ -21,4 +21,98 @@
  */
 class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adminhtml_Controller_Action
 {
+
+    public function indexAction()
+    {
+        $this->loadLayout();
+        $this->_setActiveMenu('webinse_company');
+        $this->renderLayout();
+        return $this;
+    }
+
+    public function massDeleteAction()
+    {
+        $helper = Mage::helper('webinse_company');
+        $Ids=$this->getRequest()->getParam('entity_id');
+        if(!is_array($Ids)) {
+            Mage::getSingleton('adminhtml/session')->addError($helper->__('Please select one or more companies.'));
+        } else {
+            try {
+                $company = Mage::getModel('webinse_company/company');
+                foreach ($Ids as $Id) {
+                    $company->setId($Id)->delete();
+                }
+                Mage::getSingleton('adminhtml/session')->addSuccess($helper->__('Records were deleted.')
+                );
+            } catch (Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+            }
+        }
+        $this->_redirect('*/*/index');
+    }
+
+    public function gridAction()
+    {
+        $this->loadLayout();
+        $this->getResponse()->setBody(
+            $this->getLayout()->createBlock('webinse_company/adminhtml_company_grid')->toHtml()
+        );
+    }
+
+
+    public function newAction()
+    {
+
+        $this->_initCompany();
+
+        $this->loadLayout();
+        $this->_setActiveMenu('webinse_company');
+
+        $this->_addContent($this->getLayout()->createBlock('webinse_company/adminhtml_company_edit'));
+        $this->renderLayout();
+    }
+
+
+    public function editAction()
+    {
+        $this->_forward('new');
+    }
+
+
+    public function saveAction()
+    {
+        $data = $this->getRequest()->getPost();
+        if (!empty($data)) {
+            $model = Mage::getModel('webinse_company/company');
+                try {
+                    $model->setData($data);
+                    $model->save();
+                } catch (Mage_Core_Exception $e) {
+                    Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+                } catch (Exception $e) {
+                    Mage::logException($e);
+                    Mage::getSingleton('adminhtml/session')->addError($this->__('Somethings went wrong'));
+                }
+        }
+        return $this->_redirect('*/*/');
+    }
+
+    public function deleteAction()
+    {
+       $tipId = $this->getRequest()->getParam('id', false);
+
+        try {
+            Mage::getModel('webinse_company/company')->setId($tipId)->delete();
+            Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('webinse_company')->__('Company successfully deleted'));
+            return $this->_redirect('*/*/');
+        } catch (Mage_Core_Exception $e){
+            Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+        } catch (Exception $e) {
+            Mage::logException($e);
+            Mage::getSingleton('adminhtml/session')->addError($this->__('Somethings went wrong'));
+        }
+
+        $this->_redirectReferer();
+    }
+
 }
