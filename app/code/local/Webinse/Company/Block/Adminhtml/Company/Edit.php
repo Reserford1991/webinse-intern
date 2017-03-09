@@ -28,7 +28,6 @@ class Webinse_Company_Block_Adminhtml_Company_Edit extends Mage_Adminhtml_Block_
         $this-> _blockGroup= 'webinse_company';
         $this->_mode = 'edit';
         $this->_controller = 'adminhtml_company';
-        $company_id = (int)Mage::registry('current_company')->getId();
     }
 
     public function getHeaderText()
