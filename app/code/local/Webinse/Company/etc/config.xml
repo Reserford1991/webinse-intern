@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Main config of module
+ *
+ * @category	Webinse
+ * @package 	Webinse_Company
+ * @author  	Webinse Team <info@webinse.com>
+ * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
+ * @license 	http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+-->
+<config>
+    <modules>
+        <Webinse_Company>
+            <version>0.1.0</version>
+        </Webinse_Company>
+    </modules>
+    <global>
+        <models>
+            <webinse_company>
+                <class>Webinse_Company_Model</class>
+                <resourceModel>webinse_company_resource</resourceModel>
+            </webinse_company>
+            <webinse_company_resource>
+                <class>Webinse_Company_Model_Resource</class>
+                <entities>
+                    <company>
+                        <table>webinse_company</table>
+                    </company>
+                </entities>
+            </webinse_company_resource>
+        </models>
+        <resources>
+            <webinse_company_setup>
+                <setup>
+                    <module>Webinse_Company</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </webinse_company_setup>
+        </resources>
+        <blocks>
+            <webinse_company>
+                <class>Webinse_Company_Block</class>
+            </webinse_company>
+        </blocks>
+        <helpers>
+            <webinse_company>
+                <class>Webinse_Company_Helper</class>
+            </webinse_company>
+        </helpers>
+    </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <webinse_company before="Mage_Adminhtml">Webinse_Company_Adminhtml</webinse_company>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>
