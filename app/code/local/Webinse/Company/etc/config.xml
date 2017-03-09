@@ -54,6 +54,16 @@
         </helpers>
     </global>
 
+    <adminhtml>
+        <layout>
+            <updates>
+                <webinse_company module="webinse_company">
+                    <file>webinse_company.xml</file>
+                </webinse_company>
+            </updates>
+        </layout>
+    </adminhtml>
+
     <admin>
         <routers>
             <adminhtml>
