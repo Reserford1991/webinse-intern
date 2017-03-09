@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Webinse_Discount>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Webinse_Discount>
+    </modules>
+</config>
