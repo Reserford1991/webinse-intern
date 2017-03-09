@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Webinse
+ *
+ * config.xml for Webinse_Discount module
+ *
+ * @category    Webinse
+ * @package     Webinse_Discount
+ * @author      Webinse Team <info@webinse.com>
+ * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
+ * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+-->
+<config>
+    <modules>
+        <Webinse_Discount>
+            <version>0.1.0</version>
+        </Webinse_Discount>
+    </modules>
+    <global>
+        <models>
+            <webinse_discount>
+                <class>Webinse_Discount_Model</class>
+                <resourceModel>webinse_discount_resource</resourceModel>
+            </webinse_discount>
+            <webinse_discount_resource>
+                <class>Webinse_Discount_Model_Resource</class>
+                <deprecatedNode>webinse_discount_mysql4</deprecatedNode>
+                <entities>
+                    <discount>
+                        <table>webinse_discount</table>
+                    </discount>
+                </entities>
+            </webinse_discount_resource>
+        </models>
+        <resources>
+            <webinse_discount_setup>
+                <setup>
+                    <module>Webinse_Discount</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </webinse_discount_setup>
+        </resources>
+        <blocks>
+            <webinse_discount>
+                <class>Webinse_Discount_Block</class>
+            </webinse_discount>
+        </blocks>
+        <helpers>
+            <webinse_discount>
+                <class>Webinse_Discount_Helper</class>
+            </webinse_discount>
+        </helpers>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <webinse_discount module="webinse_discount">
+                    <file>webinse_discount.xml</file>
+                </webinse_discount>
+            </updates>
+        </layout>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <webinse_discount before="Mage_Adminhtml">Webinse_Discount_Adminhtml</webinse_discount>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>
