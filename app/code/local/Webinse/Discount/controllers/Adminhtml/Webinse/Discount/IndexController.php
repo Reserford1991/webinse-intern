@@ -32,13 +32,13 @@ class Webinse_Discount_Adminhtml_Webinse_Discount_IndexController extends Mage_A
 
     public function massDeleteAction()
     {
-        $helper=Mage::helper('webinse_discount');
-        $Ids=$this->getRequest()->getParam('entity_id');
+        $helper = Mage::helper('webinse_discount');
+        $Ids = $this->getRequest()->getParam('entity_id');
         if (!is_array($Ids)) {
             Mage::getSingleton('adminhtml/session')->addError($helper->__('Please select one or more companies.'));
         } else {
             try {
-                $discount=Mage::getModel('webinse_discount/discount');
+                $discount = Mage::getModel('webinse_discount/discount');
                 foreach ($Ids as $Id) {
                     $discount->setId($Id)->delete();
                 }
