@@ -52,14 +52,6 @@ class Webinse_Discount_Block_Adminhtml_Discount_Grid extends Mage_Adminhtml_Bloc
             'type'          => 'number',
         ));
 
-        $this->addColumn('product_id', array(
-            'header'        => $helper->__('Product Name'),
-            'align'         => 'left',
-            'index'         => 'value',
-            'filter_index'  => 'value',
-            'type'          => 'text',
-        ));
-
         $this->addColumn('product_name', array(
             'header'        => $helper->__('Product Name'),
             'align'         => 'left',
