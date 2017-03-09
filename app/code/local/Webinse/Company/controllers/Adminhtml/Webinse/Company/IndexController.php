@@ -22,6 +22,17 @@
 class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adminhtml_Controller_Action
 {
 
+    protected function _initCompany()
+    {
+        $helper = Mage::helper('webinse_company');
+        $this->_title($helper->__('Webinse'))->_title($helper->__('Company'));
+        Mage::register('current_company', Mage::getModel('webinse_company/company'));
+        $companyId = (int)$this->getRequest()->getParam('id');
+        if (!is_null($companyId)) {
+            Mage::registry('current_company')->load($companyId);
+        }
+    }
+
     public function indexAction()
     {
         $this->loadLayout();
@@ -84,6 +95,7 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
         $data = $this->getRequest()->getPost();
         if (!empty($data)) {
             $model = Mage::getModel('webinse_company/company');
+            if($model->validate === true) {
                 try {
                     $model->setData($data);
                     $model->save();
@@ -93,6 +105,10 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
                     Mage::logException($e);
                     Mage::getSingleton('adminhtml/session')->addError($this->__('Somethings went wrong'));
                 }
+            }
+            else{
+                Mage::getSingleton('adminhtml/session')->addError($this->__('Backend validation went wrong'));
+            }
         }
         return $this->_redirect('*/*/');
     }

@@ -93,6 +93,25 @@ class Webinse_Company_Block_Adminhtml_Company_Grid extends Mage_Adminhtml_Block_
             'filter_index'  => 'zip',
         ));
 
+        $this->addColumn('action', array(
+            'header'    => Mage::helper('webinse_company')->__('Action'),
+            'width'     => '50px',
+            'type'      => 'action',
+            'getter'     => 'getId',
+            'actions'   => array(
+                array(
+                    'caption' => Mage::helper('webinse_company')->__('Edit'),
+                    'url'     => array(
+                        'base'=>'*/*/edit',
+                    ),
+                    'field'   => 'id'
+                )
+            ),
+            'filter'    => false,
+            'sortable'  => false,
+            'index'     => 'id',
+        ));
+
         return parent::_prepareColumns();
     }
 
