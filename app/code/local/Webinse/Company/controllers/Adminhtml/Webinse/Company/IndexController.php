@@ -10,6 +10,7 @@
  * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
+
 /**
  * Backend company controller
  *
@@ -44,8 +45,8 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
     public function massDeleteAction()
     {
         $helper = Mage::helper('webinse_company');
-        $Ids=$this->getRequest()->getParam('entity_id');
-        if(!is_array($Ids)) {
+        $Ids = $this->getRequest()->getParam('entity_id');
+        if (!is_array($Ids)) {
             Mage::getSingleton('adminhtml/session')->addError($helper->__('Please select one or more companies.'));
         } else {
             try {
@@ -95,33 +96,42 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
         $data = $this->getRequest()->getPost();
         if (!empty($data)) {
             $model = Mage::getModel('webinse_company/company');
-            if($model->validate === true) {
-                try {
-                    $model->setData($data);
-                    $model->save();
-                } catch (Mage_Core_Exception $e) {
-                    Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
-                } catch (Exception $e) {
-                    Mage::logException($e);
-                    Mage::getSingleton('adminhtml/session')->addError($this->__('Somethings went wrong'));
+            $model->setData($data);
+            try {
+                $validate = $model->validate();
+                if ($validate !== true) {
+                    foreach ($validate as $code => $error) {
+                        if ($error === true) {
+                            Mage::throwException(Mage::helper('catalog')->__('Attribute "%s" is required.', $model->getResource()->getAttribute($code)->getFrontend()->getLabel()));
+                        } else {
+                            Mage::throwException($error);
+                        }
+                    }
                 }
+                $model->save();
+            } catch
+            (Mage_Core_Exception $e) {
+                Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
+            } catch (Exception $e) {
+                Mage::logException($e);
+                Mage::getSingleton('adminhtml/session')->addError($this->__('Somethings went wrong'));
             }
-            else{
-                Mage::getSingleton('adminhtml/session')->addError($this->__('Backend validation went wrong'));
-            }
+        } else {
+            Mage::getSingleton('adminhtml/session')->addError($this->__('Backend validation went wrong'));
         }
         return $this->_redirect('*/*/');
     }
 
-    public function deleteAction()
+    public
+    function deleteAction()
     {
-       $tipId = $this->getRequest()->getParam('id', false);
+        $tipId = $this->getRequest()->getParam('id', false);
 
         try {
             Mage::getModel('webinse_company/company')->setId($tipId)->delete();
             Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('webinse_company')->__('Company successfully deleted'));
             return $this->_redirect('*/*/');
-        } catch (Mage_Core_Exception $e){
+        } catch (Mage_Core_Exception $e) {
             Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
         } catch (Exception $e) {
             Mage::logException($e);

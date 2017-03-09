@@ -32,10 +32,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Form extends Mage_Adminhtml_B
         $fieldset = $form->addFieldset('base_fieldset', array('legend' => $helper->__('Company Information')));
 
         if ($company ->getId()) {
-            /**
-             * @todo: add field with faq id
-             */
-            $fieldset->addField('entity_id', 'hidden', array(
+           $fieldset->addField('entity_id', 'hidden', array(
                 'name'      => 'entity_id',
                 'required'  => true
             ));
