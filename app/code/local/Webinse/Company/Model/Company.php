@@ -31,27 +31,6 @@ class Webinse_Company_Model_Company extends Mage_Core_Model_Abstract
 
     public function validate()
     {
-       /* $errors = array();
-
-
-        if (!Zend_Validate::is($this->getBlockName(), 'NotEmpty')) {
-            $errors[] = Mage::helper('adminhtml')->__('This is required field.');
-            Mage::getSingleton('adminhtml/session')->addError($this->__('This is required field.'));
-        }
-        if (!Zend_Validate::is($this->getBlockName(), 'Regex', array('/^[-_a-zA-Z0-9\/]*$/'))) {
-            $errors[] = Mage::helper('adminhtml')->__('This is incorrect.');
-            Mage::getSingleton('adminhtml/session')->addError($this->__('This is required field.'));
-        }
-
-        if (!in_array($this->getIsAllowed(), array('0', '1'))) {
-            $errors[] = Mage::helper('adminhtml')->__('Is Allowed is required field.');
-            Mage::getSingleton('adminhtml/session')->addError($this->__('This is required field.'));
-        }
-
-        if (empty($errors)) {
-            return true;
-        }
-        return $errors;*/
         $errors = new ArrayObject();
 
         if (!Zend_Validate::is($this->getName(), 'NotEmpty')) {
