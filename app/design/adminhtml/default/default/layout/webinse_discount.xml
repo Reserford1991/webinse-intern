@@ -13,7 +13,7 @@
 <layout>
     <adminhtml_webinse_discount_index_index>
         <reference name="content">
-            <block type="webinse_discount/adminhtml_discount" name="discount"></block>
+            <block type="webinse_discount/adminhtml_discount" name="webinse_discount"></block>
         </reference>
     </adminhtml_webinse_discount_index_index>
 </layout>

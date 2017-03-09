@@ -33,8 +33,8 @@ class Webinse_Discount_Block_Adminhtml_Discount_Grid extends Mage_Adminhtml_Bloc
 
     protected function _prepareCollection()
     {
-        $collection = Mage::getModel('webinse_discount/discount')->getCollection();
-        $collection  -> joinProducts($collection);
+        $collection=Mage::getModel('webinse_discount/discount')->getCollection();
+        $collection->joinProducts($collection);
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }
@@ -57,6 +57,14 @@ class Webinse_Discount_Block_Adminhtml_Discount_Grid extends Mage_Adminhtml_Bloc
             'align'         => 'left',
             'index'         => 'value',
             'filter_index'  => 'value',
+            'type'          => 'text',
+        ));
+
+        $this->addColumn('product_name', array(
+            'header'        => $helper->__('Product Name'),
+            'align'         => 'left',
+            'index'         => 'product_name',
+            'filter_index'  => 'product_name',
             'type'          => 'text',
         ));
 
@@ -98,15 +106,12 @@ class Webinse_Discount_Block_Adminhtml_Discount_Grid extends Mage_Adminhtml_Bloc
     protected function _prepareMassaction()
     {
         $helper = Mage::helper('webinse_discount');
-
         $this->setMassactionIdField('entity_id');
         $this->getMassactionBlock()->setFormFieldName('entity_id');
-
         $this->getMassactionBlock()->addItem('delete', array(
             'label'         => $helper->__('Delete'),
             'url'           => $this->getUrl('*/*/massDelete')
         ));
-
         return $this;
     }
 
