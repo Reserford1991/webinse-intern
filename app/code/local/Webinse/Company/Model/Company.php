@@ -31,47 +31,48 @@ class Webinse_Company_Model_Company extends Mage_Core_Model_Abstract
 
     public function validate()
     {
-        $errors = new ArrayObject();
+        $error = false;
 
-        if (!Zend_Validate::is($this->getName(), 'NotEmpty')) {
-            $errors[] = Mage::helper('adminhtml')->__('Name is required field.');
+        if (!Zend_Validate::is(trim($this->getName()), 'NotEmpty')) {
+            $error = true;
         }
 
-        if (!Zend_Validate::is($this->getDomains(), 'NotEmpty')) {
-            $errors[] = Mage::helper('adminhtml')->__('Domain is required field.');
+        if (!Zend_Validate::is(trim($this->getDomains()), 'NotEmpty')) {
+            $error = true;
         }
 
-        if (!Zend_Validate::is($this->getContactName(), 'NotEmpty')) {
-            $errors[] = Mage::helper('adminhtml')->__('ContactName is required field.');
+        if (!Zend_Validate::is(trim($this->getContactName()), 'NotEmpty')) {
+            $error = true;
         }
 
-        if (!Zend_Validate::is($this->getOfficePhone(), 'NotEmpty')) {
-            $errors[] = Mage::helper('adminhtml')->__('ContactName is required field.');
+        if (!Zend_Validate::is(trim($this->getOfficePhone()), 'NotEmpty')) {
+            $error = true;
         }
 
-        if (!Zend_Validate::is($this->getMobilePhone(), 'NotEmpty')) {
-            $errors[] = Mage::helper('adminhtml')->__('Last Name is required field.');
+        if (!Zend_Validate::is(trim($this->getMobilePhone()), 'NotEmpty')) {
+            $error = true;
         }
 
-        if (!Zend_Validate::is($this->getStreet(), 'EmailAddress')) {
-            $errors[] = Mage::helper('adminhtml')->__('Please enter a valid email.');
+        if (!Zend_Validate::is(trim($this->getStreet()), 'NotEmpty')) {
+            $error = true;
         }
 
-        if (!Zend_Validate::is($this->getCity(), 'EmailAddress')) {
-            $errors[] = Mage::helper('adminhtml')->__('Please enter a valid email.');
+        if (!Zend_Validate::is(trim($this->getCity()), 'NotEmpty')) {
+            $error = true;
         }
 
-        if (!Zend_Validate::is($this->getState(), 'EmailAddress')) {
-            $errors[] = Mage::helper('adminhtml')->__('Please enter a valid email.');
+        if (!Zend_Validate::is(trim($this->getState()), 'NotEmpty')) {
+            $error = true;
         }
 
-        if (!Zend_Validate::is($this->getZip(), 'EmailAddress')) {
-            $errors[] = Mage::helper('adminhtml')->__('Please enter a valid email.');
+        if (!Zend_Validate::is(trim($this->getZip()), 'NotEmpty')) {
+            $error = true;
         }
 
-        if (count($errors) === 0) {
-            return true;
+        if ($error) {
+            Mage::throwException('Please fill all required fields');
         }
-        return (array)$errors;
+
+        return $this;
     }
 }
