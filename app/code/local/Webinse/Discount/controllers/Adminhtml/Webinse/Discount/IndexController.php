@@ -10,6 +10,7 @@
  * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
+
 /**
  * Backend discount controller
  *
@@ -33,11 +34,11 @@ class Webinse_Discount_Adminhtml_Webinse_Discount_IndexController extends Mage_A
     {
         $helper=Mage::helper('webinse_discount');
         $Ids=$this->getRequest()->getParam('entity_id');
-        if(!is_array($Ids)) {
+        if (!is_array($Ids)) {
             Mage::getSingleton('adminhtml/session')->addError($helper->__('Please select one or more companies.'));
         } else {
             try {
-                $discount = Mage::getModel('webinse_discount/discount');
+                $discount=Mage::getModel('webinse_discount/discount');
                 foreach ($Ids as $Id) {
                     $discount->setId($Id)->delete();
                 }
@@ -47,7 +48,6 @@ class Webinse_Discount_Adminhtml_Webinse_Discount_IndexController extends Mage_A
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
             }
         }
-
         $this->_redirect('*/*/index');
     }
 
