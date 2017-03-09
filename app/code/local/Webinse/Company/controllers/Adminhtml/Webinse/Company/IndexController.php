@@ -122,11 +122,9 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
         return $this->_redirect('*/*/');
     }
 
-    public
-    function deleteAction()
+    public function deleteAction()
     {
         $tipId = $this->getRequest()->getParam('id', false);
-
         try {
             Mage::getModel('webinse_company/company')->setId($tipId)->delete();
             Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('webinse_company')->__('Company successfully deleted'));
