@@ -21,7 +21,6 @@
  */
 class Webinse_Discount_Block_Adminhtml_Discount_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -111,5 +110,4 @@ class Webinse_Discount_Block_Adminhtml_Discount_Grid extends Mage_Adminhtml_Bloc
     {
         return $this->getUrl('*/*/grid', array('_current'=>true));
     }
-
 }

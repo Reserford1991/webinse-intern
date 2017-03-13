@@ -26,5 +26,4 @@ class Webinse_Discount_Model_Discount extends Mage_Core_Model_Abstract
         parent::_construct();
         $this->_init('webinse_discount/discount');
     }
-
 }

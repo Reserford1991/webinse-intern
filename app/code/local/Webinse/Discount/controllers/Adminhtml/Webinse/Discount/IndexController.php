@@ -58,5 +58,4 @@ class Webinse_Discount_Adminhtml_Webinse_Discount_IndexController extends Mage_A
             $this->getLayout()->createBlock('webinse_discount/adminhtml_discount_grid')->toHtml()
         );
     }
-
 }
