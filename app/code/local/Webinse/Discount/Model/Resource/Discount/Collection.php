@@ -33,7 +33,7 @@ class Webinse_Discount_Model_Resource_Discount_Collection extends Mage_Core_Mode
         $id = $productName->getId();
         $this->getSelect()
             ->join(array('product_sku'=>'catalog_product_entity'), 'product_sku.entity_id = main_table.product_id', array('product_sku.sku'));
-        $this -> getSelect()
+        $this->getSelect()
             ->join(array('product_name'=>$productName->getBackendTable()), "product_name.entity_id = main_table.product_id AND product_name.attribute_id = $id", array('product_name'=>'product_name.value'));
         return $this;
     }
