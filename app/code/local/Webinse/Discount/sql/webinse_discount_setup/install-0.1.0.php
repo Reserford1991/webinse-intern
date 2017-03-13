@@ -21,8 +21,8 @@
  */
 $installer = $this;
 $installer->startSetup();
-
 $tableName = $installer->getTable('webinse_discount/discount');
+
 if (!($installer->getConnection()->isTableExists($tableName))) {
     $table = $installer->getConnection()
         ->newTable($tableName)
