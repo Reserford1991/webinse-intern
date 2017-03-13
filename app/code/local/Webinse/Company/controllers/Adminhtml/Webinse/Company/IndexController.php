@@ -91,10 +91,7 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
             $model = Mage::getModel('webinse_company/company');
             $model->setData($data);
             try {
-                $validate = $model->validate();
-                if ($validate !== true) {
-                    Mage::throwException($validate);
-                    }
+                Mage::throwException($model->validate());
                 $model->save();
             } catch
             (Mage_Core_Exception $e) {

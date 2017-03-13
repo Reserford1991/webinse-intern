@@ -31,44 +31,44 @@ class Webinse_Company_Model_Company extends Mage_Core_Model_Abstract
     {
         $error = false;
 
-        if (!Zend_Validate::is(trim($this->getName()), 'NotEmpty')) {
+        if (!Zend_Validate::is(trim($this->getName()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getDomains()), 'NotEmpty')) {
+        if (!Zend_Validate::is(trim($this->getDomains()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getContactName()), 'NotEmpty')) {
+        if (!Zend_Validate::is(trim($this->getContactName()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getOfficePhone()), 'NotEmpty')) {
+        if (!Zend_Validate::is(trim($this->getOfficePhone()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getMobilePhone()), 'NotEmpty')) {
+        if (!Zend_Validate::is(trim($this->getMobilePhone()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getStreet()), 'NotEmpty')) {
+        if (!Zend_Validate::is(trim($this->getStreet()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getCity()), 'NotEmpty')) {
+        if (!Zend_Validate::is(trim($this->getCity()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getState()), 'NotEmpty')) {
+        if (!Zend_Validate::is(trim($this->getState()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getZip()), 'NotEmpty')) {
+        if (!Zend_Validate::is(trim($this->getZip()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
             $error = true;
         }
 
         if ($error) {
-            Mage::throwException('Please fill all required fields');
+            Mage::throwException('Please fill all required fields correctly');
         }
 
         return $this;

@@ -114,7 +114,6 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Form extends Mage_Adminhtml_B
         $form->setUseContainer(true);
         $form->setId('edit_form');
         $form->setAction($this->getUrl('*/*/save'));
-        $form->setValues($company->getData());
         $this->setForm($form);
     }
 
