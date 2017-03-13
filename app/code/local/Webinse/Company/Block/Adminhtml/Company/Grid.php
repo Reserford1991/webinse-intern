@@ -97,11 +97,11 @@ class Webinse_Company_Block_Adminhtml_Company_Grid extends Mage_Adminhtml_Block_
             'getter'        => 'getId',
             'actions'       => array(
                 array(
-                    'caption' => Mage::helper('webinse_company')->__('Edit'),
-                    'url'     => array(
-                        'base'=>'*/*/edit',
+                    'caption'  => Mage::helper('webinse_company')->__('Edit'),
+                    'url'      => array(
+                        'base' => '*/*/edit',
                          ),
-                    'field'   => 'id'
+                    'field'    => 'id'
                     )
             ),
             'filter'        => false,
@@ -129,5 +129,4 @@ class Webinse_Company_Block_Adminhtml_Company_Grid extends Mage_Adminhtml_Block_
     {
         return $this->getUrl('*/*/grid', array('_current'=>true));
     }
-
 }

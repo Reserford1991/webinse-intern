@@ -11,7 +11,7 @@
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
 /**
- * Adminhtml faq edit container block
+ * Adminhtml Company edit container block
  *
  * @category    Webinse
  * @package     Webinse_Company
@@ -21,11 +21,10 @@
  */
 class Webinse_Company_Block_Adminhtml_Company_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
-
     public function __construct()
     {
         parent::__construct();
-        $this-> _blockGroup= 'webinse_company';
+        $this->_blockGroup = 'webinse_company';
         $this->_mode = 'edit';
         $this->_controller = 'adminhtml_company';
     }
@@ -44,5 +43,4 @@ class Webinse_Company_Block_Adminhtml_Company_Edit extends Mage_Adminhtml_Block_
     {
         return 'icon-head head-company';
     }
-
 }

@@ -72,7 +72,6 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
 
     public function newAction()
     {
-
         $this->_initCompany();
         $this->loadLayout();
         $this->_setActiveMenu('webinse_company');
