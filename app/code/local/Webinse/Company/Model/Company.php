@@ -31,39 +31,39 @@ class Webinse_Company_Model_Company extends Mage_Core_Model_Abstract
     {
         $error = false;
 
-        if (!Zend_Validate::is(trim($this->getName()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
+        if (!Zend_Validate::is($this->getName(), 'Regex', array('/^[a-zA-Z0-9]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getDomains()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
+        if (!Zend_Validate::is($this->getDomains(), 'Regex', array('/^[a-zA-Z0-9]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getContactName()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
+        if (!Zend_Validate::is($this->getContactName(), 'Regex', array('/^[a-zA-Z0-9]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getOfficePhone()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
+        if (!Zend_Validate::is($this->getOfficePhone(), 'Regex', array('/^[a-zA-Z0-9]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getMobilePhone()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
+        if (!Zend_Validate::is($this->getMobilePhone(), 'Regex', array('/^[a-zA-Z0-9]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getStreet()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
+        if (!Zend_Validate::is($this->getStreet(), 'Regex', array('/^[a-zA-Z0-9]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getCity()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
+        if (!Zend_Validate::is($this->getCity(), 'Regex', array('/^[a-zA-Z0-9]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getState()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
+        if (!Zend_Validate::is($this->getState(), 'Regex', array('/^[a-zA-Z0-9]+$/'))) {
             $error = true;
         }
 
-        if (!Zend_Validate::is(trim($this->getZip()), 'Regex', array('/^[-._a-zA-Z0-9\/]+$/'))) {
+        if (!Zend_Validate::is($this->getZip(), 'Regex', array('/^[a-zA-Z0-9]+$/'))) {
             $error = true;
         }
 

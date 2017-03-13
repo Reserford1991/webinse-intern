@@ -31,18 +31,18 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Form extends Mage_Adminhtml_B
         $fieldset = $form->addFieldset('base_fieldset', array('legend'=>$helper->__('Company Information')));
 
         if ($company->getId()) {
-           $fieldset->addField('entity_id', 'hidden', array(
+            $fieldset->addField('entity_id', 'hidden', array(
                 'name'      => 'entity_id',
                 'required'  => true
-                ));
+            ));
         }
 
         $fieldset->addField('name', 'text', array(
             'name'      => 'name',
             'label'     => Mage::helper('webinse_company')->__('Company name'),
             'maxlength' => '250',
-            'required'  => true,
-            'class'     => 'validate-alphanum',
+            //'required'  => true,
+            //'class'     => 'validate-alphanum',
         ));
 
         $fieldset->addField('domains', 'text', array(

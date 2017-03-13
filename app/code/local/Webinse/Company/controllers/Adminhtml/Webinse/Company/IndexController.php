@@ -100,8 +100,6 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
                 Mage::logException($e);
                 Mage::getSingleton('adminhtml/session')->addError($this->__('Somethings went wrong'));
             }
-        } else {
-            Mage::getSingleton('adminhtml/session')->addError($this->__('Backend validation went wrong'));
         }
         return $this->_redirect('*/*/');
     }
