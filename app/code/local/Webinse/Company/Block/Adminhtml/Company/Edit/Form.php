@@ -25,23 +25,23 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Form extends Mage_Adminhtml_B
     protected function _prepareLayout()
     {
         parent::_prepareLayout();
-        $helper=Mage::helper('webinse_company');
-        $form=new Varien_Data_Form();
-        $company=Mage::registry('current_company');
-        $fieldset=$form->addFieldset('base_fieldset', array('legend'=>$helper->__('Company Information')));
+        $helper = Mage::helper('webinse_company');
+        $form = new Varien_Data_Form();
+        $company = Mage::registry('current_company');
+        $fieldset = $form->addFieldset('base_fieldset', array('legend'=>$helper->__('Company Information')));
 
         if ($company->getId()) {
            $fieldset->addField('entity_id', 'hidden', array(
                 'name'      => 'entity_id',
                 'required'  => true
-            ));
+                ));
         }
 
         $fieldset->addField('name', 'text', array(
             'name'      => 'name',
             'label'     => Mage::helper('webinse_company')->__('Company name'),
             'maxlength' => '250',
-            'required'  => true,
+            //'required'  => true,
             'class'     => 'validate-alphanum',
         ));
 

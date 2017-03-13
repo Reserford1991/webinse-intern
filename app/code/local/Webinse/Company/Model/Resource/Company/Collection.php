@@ -21,10 +21,8 @@
  */
 class Webinse_Company_Model_Resource_Company_Collection extends Mage_Core_Model_Resource_Db_Collection_Abstract
 {
-
     protected function _construct()
     {
         $this->_init('webinse_company/company');
     }
-
 }

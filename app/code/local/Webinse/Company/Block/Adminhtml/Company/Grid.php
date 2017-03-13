@@ -21,11 +21,9 @@
  */
 class Webinse_Company_Block_Adminhtml_Company_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-
     public function __construct()
     {
         parent::__construct();
-
         $this->setId('companyGrid');
         $this->setUseAjax(true);
         $this->setDefaultSort('entity_id');
@@ -36,7 +34,6 @@ class Webinse_Company_Block_Adminhtml_Company_Grid extends Mage_Adminhtml_Block_
     {
         $collection = Mage::getModel('webinse_company/company')->getCollection();
         $this->setCollection($collection);
-
         return parent::_prepareCollection();
     }
 
@@ -87,29 +84,29 @@ class Webinse_Company_Block_Adminhtml_Company_Grid extends Mage_Adminhtml_Block_
         $this->addColumn('company_adress', array(
             'header'        => $helper->__('Company Adress'),
             'align'         => 'left',
-            'index'     => array('street', 'city', 'state', 'zip'),
-            'type'      => 'concat',
-            'separator' => ', ',
+            'index'         => array('street', 'city', 'state', 'zip'),
+            'type'          => 'concat',
+            'separator'     => ', ',
             'filter_index'  => 'zip',
         ));
 
         $this->addColumn('action', array(
-            'header'    => Mage::helper('webinse_company')->__('Action'),
-            'width'     => '50px',
-            'type'      => 'action',
-            'getter'     => 'getId',
-            'actions'   => array(
+            'header'        => Mage::helper('webinse_company')->__('Action'),
+            'width'         => '50px',
+            'type'          => 'action',
+            'getter'        => 'getId',
+            'actions'       => array(
                 array(
                     'caption' => Mage::helper('webinse_company')->__('Edit'),
                     'url'     => array(
                         'base'=>'*/*/edit',
-                    ),
+                         ),
                     'field'   => 'id'
-                )
+                    )
             ),
-            'filter'    => false,
-            'sortable'  => false,
-            'index'     => 'id',
+            'filter'        => false,
+            'sortable'      => false,
+            'index'         => 'id',
         ));
 
         return parent::_prepareColumns();
@@ -118,10 +115,8 @@ class Webinse_Company_Block_Adminhtml_Company_Grid extends Mage_Adminhtml_Block_
     protected function _prepareMassaction()
     {
         $helper = Mage::helper('webinse_company');
-
         $this->setMassactionIdField('entity_id');
         $this->getMassactionBlock()->setFormFieldName('entity_id');
-
         $this->getMassactionBlock()->addItem('delete', array(
             'label'         => $helper->__('Delete'),
             'url'           => $this->getUrl('*/*/massDelete')

@@ -21,8 +21,8 @@
  */
 $installer = $this;
 $installer->startSetup();
-
 $tableName = $installer->getTable('webinse_company/company');
+
 if (!($installer->getConnection()->isTableExists($tableName))) {
     $table = $installer->getConnection()
         ->newTable($tableName)

@@ -22,7 +22,6 @@
  */
 class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adminhtml_Controller_Action
 {
-
     protected function _initCompany()
     {
         $helper = Mage::helper('webinse_company');
@@ -71,25 +70,20 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
         );
     }
 
-
     public function newAction()
     {
 
         $this->_initCompany();
-
         $this->loadLayout();
         $this->_setActiveMenu('webinse_company');
-
         $this->_addContent($this->getLayout()->createBlock('webinse_company/adminhtml_company_edit'));
         $this->renderLayout();
     }
-
 
     public function editAction()
     {
         $this->_forward('new');
     }
-
 
     public function saveAction()
     {
@@ -100,14 +94,8 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
             try {
                 $validate = $model->validate();
                 if ($validate !== true) {
-                    foreach ($validate as $code => $error) {
-                        if ($error === true) {
-                            Mage::throwException(Mage::helper('catalog')->__('Attribute "%s" is required.', $model->getResource()->getAttribute($code)->getFrontend()->getLabel()));
-                        } else {
-                            Mage::throwException($error);
-                        }
+                    Mage::throwException($validate);
                     }
-                }
                 $model->save();
             } catch
             (Mage_Core_Exception $e) {
@@ -135,8 +123,6 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
             Mage::logException($e);
             Mage::getSingleton('adminhtml/session')->addError($this->__('Somethings went wrong'));
         }
-
         $this->_redirectReferer();
     }
-
 }
