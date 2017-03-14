@@ -96,13 +96,13 @@ class Webinse_Discount_Block_Adminhtml_Discount_Grid extends Mage_Adminhtml_Bloc
             'width'         => '50px',
             'type'          => 'action',
             'getter'        => 'getId',
-            'actions'       => array(
+            'actions' => array(
                 array(
                     'caption' => Mage::helper('webinse_discount')->__('Edit'),
-                    'url'     => array(
-                        'base'    => '*/*/edit',
+                    'url' => array(
+                        'base' => '*/*/edit',
                     ),
-                'field'   => 'id'
+                    'field' => 'id'
                 )
             ),
             'filter'        => false,
