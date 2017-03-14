@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * StoreRestriction system file
+ *
+ * @category	Webinse
+ * @package 	Webinse_StoreRestriction
+ * @author  	Webinse Team <info@webinse.com>
+ * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
+ * @license 	http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+ -->
+<config>
+    <tabs>
+        <webinse_storerestriction translate="label" module="webinse_storerestriction">
+            <label>Webise</label>
+            <sort_order>100</sort_order>
+        </webinse_storerestriction>
+    </tabs>
+    <sections>
+        <webinse_storerestriction translate="label" module="webinse_storerestriction">
+            <label>Store Restriction</label>
+            <tab>webinse_storerestriction</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <configuration translate="label">
+                    <label>Configuration</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <allow_cms_pages translate="label">
+                            <label>Allow CMS pages</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_cms_page</source_model>
+                        </allow_cms_pages>
+                    </fields>
+                </configuration>
+            </groups>
+        </webinse_storerestriction>
+    </sections>
+</config>
