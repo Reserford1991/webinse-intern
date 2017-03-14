@@ -26,4 +26,31 @@ class Webinse_Discount_Model_Discount extends Mage_Core_Model_Abstract
         parent::_construct();
         $this->_init('webinse_discount/discount');
     }
+
+    public function validate()
+    {
+        $error = false;
+
+        if (!Zend_Validate::is($this->getProductId(), 'Int')) {
+             $error = true;
+         }
+
+        if (!Zend_Validate::is($this->getQtyProducts(), 'Int')) {
+            $error = true;
+        }
+
+        if (!Zend_Validate::is($this->getItemPrice(), 'Float')) {
+            $error = true;
+        }
+
+        if (!Zend_Validate::is($this->getSubtotal(), 'Float')) {
+            $error = true;
+        }
+
+        if ($error) {
+            Mage::throwException('Please fill all required fields correctly');
+        }
+
+        return $this;
+    }
 }

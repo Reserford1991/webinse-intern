@@ -91,6 +91,25 @@ class Webinse_Discount_Block_Adminhtml_Discount_Grid extends Mage_Adminhtml_Bloc
             'type'          => 'text',
         ));
 
+        $this->addColumn('action', array(
+            'header'        => Mage::helper('webinse_discount')->__('Action'),
+            'width'         => '50px',
+            'type'          => 'action',
+            'getter'        => 'getId',
+            'actions' => array(
+                array(
+                    'caption' => Mage::helper('webinse_discount')->__('Edit'),
+                    'url' => array(
+                        'base' => '*/*/edit',
+                    ),
+                    'field' => 'id'
+                )
+            ),
+            'filter'        => false,
+            'sortable'      => false,
+            'index'         => 'id',
+        ));
+
         return parent::_prepareColumns();
     }
 
