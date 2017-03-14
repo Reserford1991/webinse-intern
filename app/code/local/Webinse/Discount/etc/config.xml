@@ -24,6 +24,11 @@
                 <class>Webinse_Discount_Model</class>
                 <resourceModel>webinse_discount_resource</resourceModel>
             </webinse_discount>
+            <catalog>
+                <rewrite>
+                    <product_type_configurable_price>Webinse_Discount_Model_Product_Type_Price</product_type_configurable_price>
+                </rewrite>
+            </catalog>
             <webinse_discount_resource>
                 <class>Webinse_Discount_Model_Resource</class>
                 <deprecatedNode>webinse_discount_mysql4</deprecatedNode>
