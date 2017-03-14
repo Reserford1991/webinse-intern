@@ -44,7 +44,7 @@ class Webinse_Discount_Block_Adminhtml_Discount_Edit_Form extends Mage_Adminhtml
             'label'     => Mage::helper('webinse_discount')->__('Product ID'),
             'maxlength' => '250',
             'required'  => true,
-            'class'     => 'validate-digits-range digits-range-231-905',
+            'class'     => 'validate-number',
         ));
 
         $fieldset->addField('qty_products', 'text', array(
