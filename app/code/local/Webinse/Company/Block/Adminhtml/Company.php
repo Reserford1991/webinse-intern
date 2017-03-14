@@ -27,7 +27,7 @@ class Webinse_Company_Block_Adminhtml_Company extends Mage_Adminhtml_Block_Widge
     {
         $this->_controller = 'adminhtml_company';
         $helper = Mage::helper('webinse_company');
-        $this->_headerText     = $helper->__('Company Manager');
+        $this->_headerText = $helper->__('Company Manager');
         $this->_addButtonLabel = $helper->__('Add new company');
         parent::__construct();
     }

@@ -96,7 +96,7 @@ class Webinse_Company_Block_Adminhtml_Company_Grid extends Mage_Adminhtml_Block_
             'type'          => 'action',
             'getter'        => 'getId',
             'actions'       => array(
-                array(
+                    array(
                         'caption'  => Mage::helper('webinse_company')->__('Edit'),
                         'url'      => array(
                         'base'     => '*/*/edit',
