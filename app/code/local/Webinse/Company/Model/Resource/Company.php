@@ -21,13 +21,8 @@
  */
 class Webinse_Company_Model_Resource_Company extends Mage_Core_Model_Resource_Db_Abstract
 {
-
-    /**
-     * Set main entity table name and primary key field name
-     */
     protected function _construct()
     {
         $this->_init('webinse_company/company', 'entity_id');
     }
-
 }
