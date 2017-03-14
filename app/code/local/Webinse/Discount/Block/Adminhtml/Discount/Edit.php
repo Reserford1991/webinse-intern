@@ -19,12 +19,12 @@
  * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
-class Webinse_discount_Block_Adminhtml_discount_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
+class Webinse_Discount_Block_Adminhtml_Discount_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
     public function __construct()
     {
         parent::__construct();
-        $this->_blockGroup= 'webinse_discount';
+        $this->_blockGroup = 'webinse_discount';
         $this->_mode = 'edit';
         $this->_controller = 'adminhtml_discount';
     }

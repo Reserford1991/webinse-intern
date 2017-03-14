@@ -39,11 +39,11 @@ class Webinse_Discount_Model_Discount extends Mage_Core_Model_Abstract
             $error = true;
         }
 
-        if (!Zend_Validate::is($this->getItemPrice(), 'Int')) {
+        if (!Zend_Validate::is($this->getItemPrice(), 'Float')) {
             $error = true;
         }
 
-        if (!Zend_Validate::is($this->getSubtotal(), 'Int')) {
+        if (!Zend_Validate::is($this->getSubtotal(), 'Float')) {
             $error = true;
         }
 

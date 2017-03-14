@@ -5,7 +5,7 @@
  * PHP Version 5.6.23
  *
  * @category    Webinse
- * @package     Webinse_discount
+ * @package     Webinse_Discount
  * @author      Webinse Team <info@webinse.com>
  * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
@@ -14,12 +14,12 @@
  * Adminhtml discount edit form block
  *
  * @category    Webinse
- * @package     Webinse_discount
+ * @package     Webinse_Discount
  * @author      Webinse Team <info@webinse.com>
  * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
-class Webinse_discount_Block_Adminhtml_discount_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
+class Webinse_Discount_Block_Adminhtml_Discount_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
     protected function _prepareLayout()
     {
@@ -36,7 +36,7 @@ class Webinse_discount_Block_Adminhtml_discount_Edit_Form extends Mage_Adminhtml
            $fieldset->addField('entity_id', 'hidden', array(
                 'name'      => 'entity_id',
                 'required'  => true
-                ));
+           ));
         }
 
         $fieldset->addField('product_id', 'text', array(
@@ -64,17 +64,17 @@ class Webinse_discount_Block_Adminhtml_discount_Edit_Form extends Mage_Adminhtml
         ));
 
         $fieldset->addField('register', 'button', array(
-            'value' => Mage::helper('webinse_discount')->__('Subtotal'),
-            'onclick' => "myFunction()",
+             'value'    => Mage::helper('webinse_discount')->__('Subtotal'),
+             'onclick'  => "myFunction()",
         ));
 
         $fieldset->addField('subtotal', 'text', array(
-            'name'      => 'subtotal',
-            'label'     => Mage::helper('webinse_discount')->__('Subtotal'),
-            'maxlength' => '250',
-            'required'  => true,
-            'class'     => 'validate-number disabled',
-            'readonly' => true,
+             'name'      => 'subtotal',
+             'label'     => Mage::helper('webinse_discount')->__('Subtotal'),
+             'maxlength' => '250',
+             'required'  => true,
+             'class'     => 'validate-number disabled',
+             'readonly'  => true,
         ));
 
         $form->addValues($discount->getData());

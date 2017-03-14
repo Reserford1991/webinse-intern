@@ -33,7 +33,7 @@ class Webinse_Discount_Block_Adminhtml_Discount_Grid extends Mage_Adminhtml_Bloc
     protected function _prepareCollection()
     {
         $collection = Mage::getModel('webinse_discount/discount')->getCollection();
-        $collection->joinProducts($collection);
+        $collection->joinProducts();
         $this->setCollection($collection);
         return parent::_prepareCollection();
     }
@@ -100,9 +100,9 @@ class Webinse_Discount_Block_Adminhtml_Discount_Grid extends Mage_Adminhtml_Bloc
                 array(
                     'caption' => Mage::helper('webinse_discount')->__('Edit'),
                     'url'     => array(
-                        'base'=>'*/*/edit',
+                    'base'    =>'*/*/edit',
                     ),
-                    'field'   => 'id'
+                'field'   => 'id'
                 )
             ),
             'filter'        => false,

@@ -53,8 +53,7 @@ class Webinse_Discount_Adminhtml_Webinse_Discount_IndexController extends Mage_A
                 foreach ($Ids as $Id) {
                     $discount->setId($Id)->delete();
                 }
-                Mage::getSingleton('adminhtml/session')->addSuccess($helper->__('Records were deleted.')
-                );
+                Mage::getSingleton('adminhtml/session')->addSuccess($helper->__('Records were deleted.'));
             } catch (Exception $e) {
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
             }
