@@ -41,8 +41,8 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Form extends Mage_Adminhtml_B
             'name'      => 'name',
             'label'     => Mage::helper('webinse_company')->__('Company name'),
             'maxlength' => '250',
-            //'required'  => true,
-            //'class'     => 'validate-alphanum',
+            'required'  => true,
+            'class'     => 'validate-alphanum',
         ));
 
         $fieldset->addField('domains', 'text', array(
