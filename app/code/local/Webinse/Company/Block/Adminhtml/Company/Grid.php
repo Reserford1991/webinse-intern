@@ -95,14 +95,14 @@ class Webinse_Company_Block_Adminhtml_Company_Grid extends Mage_Adminhtml_Block_
             'width'         => '50px',
             'type'          => 'action',
             'getter'        => 'getId',
-            'actions'       => array(
-                    array(
-                        'caption'  => Mage::helper('webinse_company')->__('Edit'),
-                        'url'      => array(
-                            'base' => '*/*/edit',
-                        ),
-                        'field'    => 'id'
-                    )
+            'actions' => array(
+                array(
+                    'caption' => Mage::helper('webinse_company')->__('Edit'),
+                    'url' => array(
+                        'base' => '*/*/edit',
+                    ),
+                    'field' => 'id'
+                )
             ),
             'filter'        => false,
             'sortable'      => false,
