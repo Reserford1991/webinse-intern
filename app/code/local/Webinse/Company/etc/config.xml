@@ -13,7 +13,7 @@
 <config>
     <modules>
         <Webinse_Company>
-            <version>0.1.0</version>
+            <version>0.2.0</version>
         </Webinse_Company>
     </modules>
     <global>
@@ -35,7 +35,7 @@
             <webinse_company_setup>
                 <setup>
                     <module>Webinse_Company</module>
-                    <class>Mage_Core_Model_Resource_Setup</class>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
                 </setup>
                 <connection>
                     <use>core_setup</use>
