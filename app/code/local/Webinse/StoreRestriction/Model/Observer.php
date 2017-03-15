@@ -28,7 +28,6 @@ class Webinse_StoreRestriction_Model_Observer
         $frontname = strtolower(Mage::app()->getRequest()->getRouteName());
         $array = array($frontname, $controller, $action);
         $separated = implode("-", $array);
-        var_dump($separated);
         $openActions = array(
             'customer-account-create',
             'customer-account-login',
@@ -38,7 +37,6 @@ class Webinse_StoreRestriction_Model_Observer
         $configValue = Mage::getStoreConfig('webinse_storerestriction/configuration/allow_cms_pages');
         $pieces = explode(",", $configValue);
         $openActions = array_merge($openActions, $pieces);
-        var_dump($openActions);
         if (in_array($separated, $openActions)) {
             return $this;
         }
