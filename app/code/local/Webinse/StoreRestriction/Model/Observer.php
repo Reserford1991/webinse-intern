@@ -25,29 +25,26 @@ class Webinse_StoreRestriction_Model_Observer
     {
         $action = strtolower(Mage::app()->getRequest()->getActionName());
         $controller = strtolower(Mage::app()->getRequest()->getControllerName());
+        $frontname = strtolower(Mage::app()->getRequest()->getRouteName());
+        $array = array($frontname, $controller, $action);
+        $separated = implode("-", $array);
+        var_dump($separated);
         $openActions = array(
-            'create',
-            'createpost',
-            'login',
-            'loginpost',
-            'logoutsuccess',
-            'forgotpassword',
-            'forgotpasswordpost',
-            'resetpassword',
-            'resetpasswordpost',
-            'confirm',
-            'confirmation'
+            'customer-account-create',
+            'customer-account-login',
+            'customer_account-logoutsuccess',
+            'customer-account-forgotpassword',
         );
         $configValue = Mage::getStoreConfig('webinse_storerestriction/configuration/allow_cms_pages');
         $pieces = explode(",", $configValue);
         $openActions = array_merge($openActions, $pieces);
-        if ($controller == 'account' && in_array($action, $openActions)) {
+        var_dump($openActions);
+        if (in_array($separated, $openActions)) {
             return $this;
         }
         if(!Mage::getSingleton('customer/session')->isLoggedIn()){
             Mage::getSingleton('customer/session')->addError('Please, login first');
             Mage::app()->getFrontController()->getResponse()->setRedirect(Mage::getUrl('customer/account/login'));
         }
-
     }
 }
