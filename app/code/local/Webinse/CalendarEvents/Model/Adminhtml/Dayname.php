@@ -22,15 +22,15 @@
 
 class Webinse_CalendarEvents_Model_Adminhtml_DayName
 {
-    const ONE = 0;
-    const TWO = 1;
-    const THREE = 2;
+    const ABBREVIATION = 0;
+    const NARROW = 1;
+    const WIDE = 2;
     public function toOptionArray()
     {
         return array(
-            array('value' => self::ONE, 'label' => 'Abbreviation'),
-            array('value' => self::TWO, 'label' => 'Narrow'),
-            array('value' => self::THREE, 'label' => 'Wide'),
+            array('value' => self::ABBREVIATION, 'label' => 'Abbreviation'),
+            array('value' => self::NARROW, 'label' => 'Narrow'),
+            array('value' => self::WIDE, 'label' => 'Wide'),
         );
     }
 }
