@@ -23,21 +23,22 @@ class Webinse_StoreRestriction_Model_Observer
 {
     public function StoreRestriction($observer)
     {
-        $action = strtolower(Mage::app()->getRequest()->getActionName());
-        $controller = strtolower(Mage::app()->getRequest()->getControllerName());
-        $frontname = strtolower(Mage::app()->getRequest()->getRouteName());
-        $array = array($frontname, $controller, $action);
-        $separated = implode("-", $array);
+        $pages = (Mage::app()->getFrontController()->getAction()->getFullActionName());
         $openActions = array(
-            'customer-account-create',
-            'customer-account-login',
-            'customer_account-logoutsuccess',
-            'customer-account-forgotpassword',
+            'customer-account_create',
+            'customer_account_login',
+            'customer_account_logoutsuccess',
+            'customer_account_forgotpassword',
+            'customer_account_forgotpasswordpost',
+            'customer_account_changeforgotten',
+            'customer_account_resetpassword',
+            'customer_account_resetpasswordpost',
+            'customer_account_confirm',
+            'customer_account_confirmation'
         );
         $configValue = Mage::getStoreConfig('webinse_storerestriction/configuration/allow_cms_pages');
         $pieces = explode(",", $configValue);
-        $openActions = array_merge($openActions, $pieces);
-        if (in_array($separated, $openActions)) {
+        if (in_array($pages, $openActions) || in_array($pages, $pieces)) {
             return $this;
         }
         if(!Mage::getSingleton('customer/session')->isLoggedIn()){
