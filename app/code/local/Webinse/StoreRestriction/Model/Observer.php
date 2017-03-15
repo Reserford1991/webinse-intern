@@ -21,7 +21,7 @@
  */
 class Webinse_StoreRestriction_Model_Observer
 {
-    public function example($observer)
+    public function StoreRestriction($observer)
     {
         $action = strtolower(Mage::app()->getRequest()->getActionName());
         $controller = strtolower(Mage::app()->getRequest()->getControllerName());

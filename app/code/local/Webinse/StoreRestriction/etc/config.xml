@@ -32,11 +32,10 @@
         <events>
             <controller_action_predispatch>
                 <observers>
-                    <webinse_storerestriction_model_observer>
-                        <type>singleton</type>
+                    <webinse_storerestriction>
                         <class>Webinse_StoreRestriction_Model_Observer</class>
-                        <method>example</method>
-                    </webinse_storerestriction_model_observer>
+                        <method>StoreRestriction</method>
+                    </webinse_storerestriction>
                 </observers>
             </controller_action_predispatch>
         </events>
