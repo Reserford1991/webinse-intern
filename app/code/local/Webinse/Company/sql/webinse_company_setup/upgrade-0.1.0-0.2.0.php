@@ -27,10 +27,9 @@ $installer->startSetup();
 
 $installer->addAttribute('customer', 'company_id', array(
     'type' => 'int',
-    'label' => 'Company_id', '
-    input' => 'select',
-    'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
-    'required' => true,
+    'label' => 'Company_id',
+    'input' => 'select',
+    'required' => false,
     'default' => 0,
     'frontend' => '',
     'visible_on_front' => false,
