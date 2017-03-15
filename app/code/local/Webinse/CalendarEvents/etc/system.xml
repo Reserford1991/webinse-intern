@@ -11,16 +11,10 @@
  */
  -->
 <config>
-    <tabs>
-        <webinse_calendarevents translate="label" module="webinse_calendarevents">
-            <label>Webise</label>
-            <sort_order>100</sort_order>
-        </webinse_calendarevents>
-    </tabs>
     <sections>
         <webinse_calendarevents translate="label" module="webinse_calendarevents">
             <label>Calendar Events</label>
-            <tab>webinse_calendarevents</tab>
+            <tab>webinse_storerestriction</tab>
             <frontend_type>text</frontend_type>
             <sort_order>1000</sort_order>
             <show_in_default>1</show_in_default>
@@ -58,7 +52,7 @@
                         </number_of_prev_months>
                     </fields>
                     <fields>
-                        <number_of_next_months translate="label">
+                        <number_of_next_months translate="all">
                             <label>Number of the next month(s)</label>
                             <frontend_type>text</frontend_type>
                             <validate>validate-number</validate>
@@ -70,7 +64,7 @@
                         </number_of_next_months>
                     </fields>
                     <fields>
-                        <calendar_cell_size translate="label">
+                        <calendar_cell_size translate="all">
                             <label>Calendar cell size</label>
                             <frontend_type>text</frontend_type>
                             <validate>validate-number</validate>
