@@ -23,7 +23,11 @@ class Webinse_StoreRestriction_Model_Observer
 {
     public function StoreRestriction($observer)
     {
-        $pages = (Mage::app()->getFrontController()->getAction()->getFullActionName());
+        $controller = $observer->getControllerAction();
+        $request = $controller->getRequest();
+        $actionName =  $controller->getFullActionName();
+        $pieces = explode(",", Mage::getStoreConfig('webinse_storerestriction/configuration/allow_cms_pages'));
+        $flagRedirect = false;
         $openActions = array(
             'customer-account_create',
             'customer_account_login',
@@ -36,14 +40,21 @@ class Webinse_StoreRestriction_Model_Observer
             'customer_account_confirm',
             'customer_account_confirmation'
         );
-        $configValue = Mage::getStoreConfig('webinse_storerestriction/configuration/allow_cms_pages');
-        $pieces = explode(",", $configValue);
-        if (in_array($pages, $openActions) || in_array($pages, $pieces)) {
-            return $this;
+        if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
+            if ($actionName == 'cms_page_view') {
+                $path = Mage::getModel('cms/page')->load($request->getParam('page_id'))->getIdentifier();
+                if (is_null($path) || !in_array($path, $pieces)) {
+                    $flagRedirect = true;
+                }
+            } elseif (!in_array($actionName, $openActions)) {
+                $flagRedirect = true;
+            }
         }
-        if(!Mage::getSingleton('customer/session')->isLoggedIn()){
-            Mage::getSingleton('customer/session')->addError('Please, login first');
-            Mage::app()->getFrontController()->getResponse()->setRedirect(Mage::getUrl('customer/account/login'));
+        if ($flagRedirect) {
+            Mage::getSingleton('core/session')->addError(Mage::helper('webinse_storerestriction')
+                ->__('Please login first'));
+            Mage::app()->getResponse()->setRedirect('/customer/account/login/');
+            $controller->setFlag('', 'no-dispatch', true);
         }
     }
 }
