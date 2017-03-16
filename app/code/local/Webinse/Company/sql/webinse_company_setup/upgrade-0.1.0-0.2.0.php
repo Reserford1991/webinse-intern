@@ -30,9 +30,7 @@ $installer->addAttribute('customer', 'company_id', array(
     'label' => 'Company id',
     'input' => 'text',
     'required' => false,
-    'frontend' => '',
     'visible_on_front' => false,
-    'backend' => '',
     'visible' => false,
 ));
 
