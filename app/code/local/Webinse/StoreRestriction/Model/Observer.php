@@ -25,7 +25,7 @@ class Webinse_StoreRestriction_Model_Observer
     {
         $controller = $observer->getControllerAction();
         $request = $controller->getRequest();
-        $actionName =  $controller->getFullActionName();
+        $actionName = $controller->getFullActionName();
         $pieces = explode(",", Mage::getStoreConfig('webinse_storerestriction/configuration/allow_cms_pages'));
         $flagRedirect = false;
         $openActions = array(
