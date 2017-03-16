@@ -21,15 +21,14 @@
  */
 class Webinse_StoreRestriction_Model_Observer
 {
-    public function StoreRestriction($observer)
+    public function storerestriction($observer)
     {
         $controller = $observer->getControllerAction();
         $request = $controller->getRequest();
         $actionName = $controller->getFullActionName();
-        $pieces = explode(",", Mage::getStoreConfig('webinse_storerestriction/configuration/allow_cms_pages'));
         $flagRedirect = false;
         $openActions = array(
-            'customer-account_create',
+            'customer_account_create',
             'customer_account_login',
             'customer_account_logoutsuccess',
             'customer_account_forgotpassword',
@@ -43,6 +42,7 @@ class Webinse_StoreRestriction_Model_Observer
         if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
             if ($actionName == 'cms_page_view') {
                 $path = Mage::getModel('cms/page')->load($request->getParam('page_id'))->getIdentifier();
+                $pieces = explode(",", Mage::getStoreConfig('webinse_storerestriction/configuration/allow_cms_pages'));
                 if (is_null($path) || !in_array($path, $pieces)) {
                     $flagRedirect = true;
                 }
