@@ -27,10 +27,9 @@ $installer->startSetup();
 
 $installer->addAttribute('customer', 'company_id', array(
     'type' => 'int',
-    'label' => 'Company_id',
-    'input' => 'select',
+    'label' => 'Company id',
+    'input' => 'text',
     'required' => false,
-    'default' => 0,
     'frontend' => '',
     'visible_on_front' => false,
     'backend' => '',
