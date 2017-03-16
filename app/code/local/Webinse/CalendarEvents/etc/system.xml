@@ -38,9 +38,7 @@
                             <show_in_store>1</show_in_store>
                             <source_model>webinse_calendarevents/adminhtml_dayname</source_model>
                         </day_names>
-                    </fields>
-                    <fields>
-                        <number_of_prev_months translate="number_of_prev_months">
+                        <number_of_prev_months translate="label comment">
                             <label>Number of the prev month(s)</label>
                             <frontend_type>text</frontend_type>
                             <validate>validate-number</validate>
@@ -50,9 +48,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </number_of_prev_months>
-                    </fields>
-                    <fields>
-                        <number_of_next_months translate="number_of_next_months">
+                        <number_of_next_months translate="label comment">
                             <label>Number of the next month(s)</label>
                             <frontend_type>text</frontend_type>
                             <validate>validate-number</validate>
@@ -62,9 +58,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </number_of_next_months>
-                    </fields>
-                    <fields>
-                        <calendar_cell_size translate="calendar_cell_size">
+                        <calendar_cell_size translate="label comment">
                             <label>Calendar cell size</label>
                             <frontend_type>text</frontend_type>
                             <validate>validate-number</validate>

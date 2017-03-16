@@ -20,17 +20,18 @@
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
 
-class Webinse_CalendarEvents_Model_Adminhtml_DayName
+class Webinse_CalendarEvents_Model_Adminhtml_Dayname
 {
     const ABBREVIATION = 0;
     const NARROW = 1;
     const WIDE = 2;
+
     public function toOptionArray()
     {
         return array(
-            array('value' => self::ABBREVIATION, 'label' => 'Abbreviation'),
-            array('value' => self::NARROW, 'label' => 'Narrow'),
-            array('value' => self::WIDE, 'label' => 'Wide'),
+            array('value' => self::ABBREVIATION, 'label' => Mage::helper('webinse_calendarevents')->__('Abbreviation')),
+            array('value' => self::NARROW, 'label' => Mage::helper('webinse_calendarevents')->__('Narrow')),
+            array('value' => self::WIDE, 'label' => Mage::helper('webinse_calendarevents')->__('Wide')),
         );
     }
 }
