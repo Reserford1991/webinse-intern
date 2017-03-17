@@ -21,19 +21,29 @@
 */
 
 $installer = $this;
-/* @var $installer Mage_Core_Model_Resource_Setup */
-
 $installer->startSetup();
-
-$conn = $installer->getConnection();
 $table = $installer->getTable('cms_page');
 
 $installer->getConnection()
-    ->addColumn($table,'customer_group', array(
-        'type'      => Varien_Db_Ddl_Table::TYPE_INTEGER,
-        'nullable'  => true,
-        'length'    => 255,
-        'after'     => null, // column name to insert new column after
-        'comment'   => 'Customer Group'
+    ->addColumn($table, 'customer_group', array(
+        'type' => Varien_Db_Ddl_Table::TYPE_INTEGER,
+        'nullable' => true,
+        'length' => 255,
+        'comment' => 'Customer Group'
     ));
+
+$installer->getConnection()
+    ->addColumn($table, 'date_from', array(
+        'type' => Varien_Db_Ddl_Table::TYPE_DATE,
+        'nullable' => true,
+        'comment' => 'Date From'
+    ));
+
+$installer->getConnection()
+    ->addColumn($table, 'date_to', array(
+        'type' => Varien_Db_Ddl_Table::TYPE_DATE,
+        'nullable' => true,
+        'comment' => 'Date To'
+    ));
+
 $installer->endSetup();
