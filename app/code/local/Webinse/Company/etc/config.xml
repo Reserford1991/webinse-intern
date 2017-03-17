@@ -59,7 +59,7 @@
                 <observers>
                     <webinse_storerestriction>
                         <class>Webinse_Company_Model_Observer</class>
-                        <method>Company</method>
+                        <method>customerFilter</method>
                     </webinse_storerestriction>
                 </observers>
             </customer_save_before>

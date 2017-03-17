@@ -50,7 +50,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Form extends Mage_Adminhtml_B
             'label'     => Mage::helper('webinse_company')->__('Domains'),
             'maxlength' => '250',
             'required'  => true,
-            'class'     => 'validate-alphanum',
+            'class'     => 'required-entry',
         ));
 
         $fieldset->addField('contact_name', 'text', array(

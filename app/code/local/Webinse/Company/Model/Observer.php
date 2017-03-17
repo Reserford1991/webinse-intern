@@ -22,19 +22,22 @@
  */
 class Webinse_Company_Model_Observer
 {
-    public function Company(Varien_Event_Observer $observer)
+    public function customerFilter(Varien_Event_Observer $observer)
     {
         $customer = $observer->getCustomer();
         $mail = $customer->getEmail();
         $domain_name = substr(strrchr($mail, "@"), 1);
         $companies = Mage::getModel('webinse_company/company')->getCollection();
         $restrict = true;
-        foreach ($companies as $thing) {
-            if ($domain_name == $thing->getData('domains')) {
-                $id = $thing->getData('entity_id');
-                $customer->setEntityId($id);
-                $restrict = false;
-           }
+        foreach ($companies as $company) {
+            $pieces = explode(", ", $company->getData('domains'));
+            foreach($pieces as $domain) {
+                if ($domain_name == $domain) {
+                    $id = $company->getData('entity_id');
+                    $customer->setCompanyId($id);
+                    $restrict = false;
+                }
+            }
         }
         if ($restrict) {
             $error = Mage::helper('webinse_company')->__('Your email is not acceptable in our system.');
