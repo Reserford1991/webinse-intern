@@ -31,12 +31,10 @@ class Webinse_Company_Model_Observer
         $restrict = true;
         foreach ($companies as $company) {
             $pieces = explode(", ", $company->getData('domains'));
-            foreach($pieces as $domain) {
-                if ($domain_name == $domain) {
-                    $id = $company->getData('entity_id');
-                    $customer->setCompanyId($id);
-                    $restrict = false;
-                }
+            if (in_array($domain_name, $pieces)) {
+                $id = $company->getData('entity_id');
+                $customer->setCompanyId($id);
+                $restrict = false;
             }
         }
         if ($restrict) {
