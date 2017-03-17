@@ -50,4 +50,23 @@
             </webinse_calendarevents_setup>
         </resources>
     </global>
+    <frontend>
+        <layout>
+            <updates>
+                <webinse_calendarevents module="webinse_calendarevents">
+                    <file>webinse_calendarevents.xml</file>
+                </webinse_calendarevents>
+            </updates>
+        </layout>
+    </frontend>
+    <default>
+        <webinse_calendarevents>
+            <config>
+                <day_name>1</day_name>
+                <cell_size>1</cell_size>
+                <prev_month>1</prev_month>
+                <next_month>1</next_month>
+            </config>
+        </webinse_calendarevents>
+    </default>
 </config>
