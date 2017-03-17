@@ -30,11 +30,7 @@
         <models>
             <webinse_calendarevents>
                 <class>Webinse_CalendarEvents_Model</class>
-                <resourceModel>calendarevents_resource</resourceModel>
             </webinse_calendarevents>
-            <calendarevents_resource>
-                <class>Webinse_CalendarEvents_Model_Resource</class>
-            </calendarevents_resource>
         </models>
     </global>
 </config>
