@@ -21,14 +21,16 @@
  */
 class Webinse_StoreRestriction_Model_Observer
 {
-    public function storerestriction($observer)
+    public function storeRestriction($observer)
     {
         $controller = $observer->getControllerAction();
         $request = $controller->getRequest();
         $actionName = $controller->getFullActionName();
         $flagRedirect = false;
         $openActions = array(
+            'customer_account_index',
             'customer_account_create',
+            'customer_account_createpost',
             'customer_account_login',
             'customer_account_logoutsuccess',
             'customer_account_forgotpassword',

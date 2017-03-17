@@ -34,7 +34,7 @@
                 <observers>
                     <webinse_storerestriction>
                         <class>webinse_storerestriction/observer</class>
-                        <method>storerestriction</method>
+                        <method>storeRestriction</method>
                     </webinse_storerestriction>
                 </observers>
             </controller_action_predispatch>
