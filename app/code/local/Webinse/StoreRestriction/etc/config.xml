@@ -28,4 +28,16 @@
             </webinse_storerestriction>
         </helpers>
     </global>
+    <frontend>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <webinse_storerestriction>
+                        <class>webinse_storerestriction/observer</class>
+                        <method>storeRestriction</method>
+                    </webinse_storerestriction>
+                </observers>
+            </controller_action_predispatch>
+        </events>
+    </frontend>
 </config>
