@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CalendarEvents config file
+ *
+ * @category	Webinse
+ * @package 	Webinse_CalendarEvents
+ * @author  	Webinse Team <info@webinse.com>
+ * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
+ * @license 	http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+-->
+<config>
+    <modules>
+        <Webinse_CalendarEvents>
+            <version>0.1.0</version>
+        </Webinse_CalendarEvents>
+    </modules>
+    <global>
+        <blocks>
+            <webinse_calendarevents>
+                <class>Webinse_CalendarEvents_Block</class>
+            </webinse_calendarevents>
+        </blocks>
+        <helpers>
+            <webinse_calendarevents>
+                <class>Webinse_CalendarEvents_Helper</class>
+            </webinse_calendarevents>
+        </helpers>
+        <models>
+            <webinse_calendarevents>
+                <class>Webinse_CalendarEvents_Model</class>
+            </webinse_calendarevents>
+        </models>
+    </global>
+</config>
