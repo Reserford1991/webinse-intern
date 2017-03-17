@@ -32,5 +32,22 @@
                 <class>Webinse_CalendarEvents_Model</class>
             </webinse_calendarevents>
         </models>
+        <events>
+            <adminhtml_cms_page_edit_tab_content_prepare_form>
+                <observers>
+                    <webinse_calendarevents_page_edit_tab_main>
+                        <class>webinse_calendarevents/observer</class>
+                        <method>addNewCmsField</method>
+                    </webinse_calendarevents_page_edit_tab_main>
+                </observers>
+            </adminhtml_cms_page_edit_tab_content_prepare_form>
+        </events>
+        <resources>
+            <webinse_calendarevents_setup>
+                <setup>
+                    <module>Webinse_CalendarEvents</module>
+                </setup>
+            </webinse_calendarevents_setup>
+        </resources>
     </global>
 </config>
