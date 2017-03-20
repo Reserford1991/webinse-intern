@@ -26,12 +26,12 @@ class Webinse_Company_Model_Observer
     {
         $customer = $observer->getCustomer();
         $mail = $customer->getEmail();
-        $domain_name = substr(strrchr($mail, "@"), 1);
+        $domainName = substr(strrchr($mail, "@"), 1);
         $companies = Mage::getModel('webinse_company/company')->getCollection();
         $restrict = true;
         foreach ($companies as $company) {
             $pieces = explode(", ", $company->getData('domains'));
-            if (in_array($domain_name, $pieces)) {
+            if (in_array($domainName, $pieces)) {
                 $id = $company->getData('entity_id');
                 $customer->setCompanyId($id);
                 $restrict = false;
