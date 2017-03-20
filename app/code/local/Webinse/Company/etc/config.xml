@@ -53,6 +53,7 @@
             </webinse_company>
         </helpers>
     </global>
+<<<<<<< Updated upstream
     <frontend>
         <events>
             <customer_save_before>
@@ -65,6 +66,8 @@
             </customer_save_before>
         </events>
     </frontend>
+=======
+>>>>>>> Stashed changes
     <adminhtml>
         <layout>
             <updates>
