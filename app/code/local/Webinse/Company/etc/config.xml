@@ -53,7 +53,18 @@
             </webinse_company>
         </helpers>
     </global>
-
+    <frontend>
+        <events>
+            <customer_save_before>
+                <observers>
+                    <webinse_storerestriction>
+                        <class>webinse_company/observer</class>
+                        <method>customerFilter</method>
+                    </webinse_storerestriction>
+                </observers>
+            </customer_save_before>
+        </events>
+    </frontend>
     <adminhtml>
         <layout>
             <updates>
@@ -63,7 +74,6 @@
             </updates>
         </layout>
     </adminhtml>
-
     <admin>
         <routers>
             <adminhtml>

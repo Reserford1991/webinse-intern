@@ -35,7 +35,7 @@ class Webinse_Company_Model_Company extends Mage_Core_Model_Abstract
             $error = true;
         }
 
-        if (!Zend_Validate::is($this->getDomains(), 'Regex', array('/^[a-zA-Z0-9]+$/'))) {
+        if (!Zend_Validate::is($this->getDomains(), 'NotEmpty')) {
             $error = true;
         }
 
