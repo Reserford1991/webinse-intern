@@ -30,7 +30,7 @@ class Webinse_Company_Model_Observer
         $companies = Mage::getModel('webinse_company/company')->getCollection();
         $restrict = true;
         foreach ($companies as $company) {
-            $pieces = explode(', ', $company->getData('domains'));
+            $pieces = explode(',', $company->getData('domains'));
             if (in_array($domainName, $pieces)) {
                 $id = $company->getData('entity_id');
                 $customer->setCompanyId($id);

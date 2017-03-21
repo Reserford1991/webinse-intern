@@ -47,7 +47,8 @@
                 <class>Webinse_Company_Block</class>
             </webinse_company>
             <adminhtml>
-                <rewrite><customer_grid>Webinse_Company_Block_Adminhtml_Customer_Grid</customer_grid>
+                <rewrite>
+                    <customer_grid>Webinse_Company_Block_Adminhtml_Customer_Grid</customer_grid>
                 </rewrite>
             </adminhtml>
         </blocks>
