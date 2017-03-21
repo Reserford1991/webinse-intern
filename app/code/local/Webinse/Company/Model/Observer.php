@@ -41,6 +41,5 @@ class Webinse_Company_Model_Observer
             $error = Mage::helper('webinse_company')->__('Your email is not acceptable in our system.');
             Mage::throwException($error);
         }
-
     }
 }
