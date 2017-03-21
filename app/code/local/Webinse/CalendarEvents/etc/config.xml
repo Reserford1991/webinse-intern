@@ -60,10 +60,10 @@
         </layout>
     </frontend>
     <default>
-        <configuration>
+        <fields>
             <day_names>Monday</day_names>
             <number_of_prev_months>1</number_of_prev_months>
             <number_of_next_months>1</number_of_next_months>
-        </configuration>
+        </fields>
     </default>
 </config>
