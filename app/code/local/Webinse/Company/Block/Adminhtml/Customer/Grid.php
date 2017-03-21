@@ -5,16 +5,19 @@ class Webinse_Company_Block_Adminhtml_Customer_Grid extends Mage_Adminhtml_Block
     public function setCollection($collection)
     {
         $companies = Mage::getModel('webinse_company/company')->getCollection();
-        $collection->joinAttribute('companyName', 'customer/company_id', 'entity_id', null, 'left');
+        $collection->joinAttribute('company_id', 'customer/company_id', 'entity_id', null, 'left')
+           ->joinTable(
+                'webinse_company', 'entity_id = company_id ', array('company_name' => 'name'), null, 'left'
+            );
         $this->_collection = $collection;
     }
 
     protected function _prepareColumns()
     {
-        $this->addColumnAfter('companyName', array(
+        $this->addColumnAfter('company_name', array(
             'header' => Mage::helper('customer')->__('Company Name'),
             'type' => 'text',
-            'index' => 'companyName'
+            'index' => 'company_name'
         ), 'billing_region');
         return parent::_prepareColumns();
     }
