@@ -60,13 +60,13 @@
         </layout>
     </frontend>
     <default>
-                <webinse_calendarevents>
-                    <configuration>
-                        <day_names>1</day_names>
-                        <number_of_prev_months>1</number_of_prev_months>
-                        <number_of_next_months>1</number_of_next_months>
-                        <calendar_cell_size>1</calendar_cell_size>
-                    </configuration>
-                </webinse_calendarevents>
+        <webinse_calendarevents>
+            <configuration>
+                <day_names>1</day_names>
+                <number_of_prev_months>1</number_of_prev_months>
+                <number_of_next_months>1</number_of_next_months>
+                <calendar_cell_size>1</calendar_cell_size>
+            </configuration>
+        </webinse_calendarevents>
     </default>
 </config>
