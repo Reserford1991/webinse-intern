@@ -46,6 +46,10 @@
             <webinse_company>
                 <class>Webinse_Company_Block</class>
             </webinse_company>
+            <adminhtml>
+                <rewrite><customer_grid>Webinse_Company_Block_Adminhtml_Customer_Grid</customer_grid>
+                </rewrite>
+            </adminhtml>
         </blocks>
         <helpers>
             <webinse_company>
@@ -53,7 +57,6 @@
             </webinse_company>
         </helpers>
     </global>
-<<<<<<< Updated upstream
     <frontend>
         <events>
             <customer_save_before>
@@ -66,8 +69,6 @@
             </customer_save_before>
         </events>
     </frontend>
-=======
->>>>>>> Stashed changes
     <adminhtml>
         <layout>
             <updates>
