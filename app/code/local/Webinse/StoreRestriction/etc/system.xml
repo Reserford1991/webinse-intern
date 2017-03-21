@@ -44,6 +44,43 @@
                             <show_in_store>1</show_in_store>
                             <source_model>adminhtml/system_config_source_cms_page</source_model>
                         </allow_cms_pages>
+                        <enabled translate="label,comment">
+                            <label>Enabled</label>
+                            <comment>Boolean with website scope and dependant fields when Yes is selected.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <!--<field_name_here translate="title">-->
+                            <!--<label>Label goes here</label>-->
+                            <!--<frontend_type>multiselect</frontend_type>-->
+                            <!--<source_model>[module]/store</source_model>-->
+                            <!--<sort_order>10</sort_order> &lt;!&ndash; feel free to change this value &ndash;&gt;-->
+                            <!--<show_in_default>1</show_in_default>&lt;!&ndash; can be 0 or 1 &ndash;&gt;-->
+                            <!--<show_in_website>0</show_in_website>&lt;!&ndash; can be 0 or 1 &ndash;&gt;-->
+                            <!--<show_in_store>0</show_in_store>&lt;!&ndash; can be 0 or 1 &ndash;&gt;-->
+                        <!--</field_name_here>-->
+                        <restricted_store translate="label,comment">
+                            <label>Textarea</label>
+                            <comment>Restricted Store Error Message</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </restricted_store>
+                        <restricted_customer translate="label,comment">
+                            <label>Textarea</label>
+                            <comment>Restricted Customer Group Error Message</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </restricted_customer>
                     </fields>
                 </configuration>
             </groups>
