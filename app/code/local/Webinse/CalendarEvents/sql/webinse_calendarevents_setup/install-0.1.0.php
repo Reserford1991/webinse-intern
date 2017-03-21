@@ -20,7 +20,7 @@
 * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
 */
 
-$installer = $this;
+/*$installer = $this;
 $installer->startSetup();
 $table = $installer->getTable('cms_page');
 
@@ -46,4 +46,4 @@ $installer->getConnection()
         'comment' => 'Date To'
     ));
 
-$installer->endSetup();
+$installer->endSetup();*/

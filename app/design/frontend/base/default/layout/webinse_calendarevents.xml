@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<layout version="0.1.0">
+    <customer_account>       
+        <reference name="customer_account_navigation">           
+            <action method="addLink" translate="label" module="webinse_calendarevents">               
+                <name>allevents</name>
+                <path>calendarevents/customer/index</path>
+                <label>All Events</label>            
+            </action>        
+        </reference>    
+    </customer_account>
+    <calendarevents_customer_index>
+        <update handle="customer_account"/>
+        <reference name="head">
+            <action method="setTitle">
+                <title>All Events</title>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>full_calendar/fullcalendar.min.css</name>
+            </action>
+            <action method="addJs">
+                <script>lib/jquery/jquery-1.10.2.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>lib/jquery/noconflict.js</script>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>full_calendar/lib/moment.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>full_calendar/fullcalendar.min.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>js/fullcalendar.js</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="allevents" template="webinse_calendarevents/calendarevents.phtml"/>
+        </reference>
+    </calendarevents_customer_index>
+</layout>

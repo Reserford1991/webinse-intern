@@ -21,6 +21,7 @@
             <webinse_calendarevents>
                 <class>Webinse_CalendarEvents_Block</class>
             </webinse_calendarevents>
+
         </blocks>
         <helpers>
             <webinse_calendarevents>
@@ -51,6 +52,15 @@
         </resources>
     </global>
     <frontend>
+        <routers>
+            <calendarevents>
+                <use>standard</use>
+                <args>
+                    <module>Webinse_CalendarEvents</module>
+                    <frontName>calendarevents</frontName>
+                </args>
+            </calendarevents>
+        </routers>
         <layout>
             <updates>
                 <webinse_calendarevents module="webinse_calendarevents">
@@ -61,12 +71,12 @@
     </frontend>
     <default>
         <webinse_calendarevents>
-            <configuration>
-                <day_names>1</day_names>
-                <number_of_prev_months>1</number_of_prev_months>
-                <number_of_next_months>1</number_of_next_months>
-                <calendar_cell_size>1</calendar_cell_size>
-            </configuration>
+            <config>
+                <day_name>1</day_name>
+                <cell_size>1</cell_size>
+                <prev_month>1</prev_month>
+                <next_month>1</next_month>
+            </config>
         </webinse_calendarevents>
     </default>
 </config>
