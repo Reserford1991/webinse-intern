@@ -12,15 +12,15 @@
  -->
 <config>
     <tabs>
-        <webinse_storerestriction translate="label" module="webinse_storerestriction">
-            <label>Webise</label>
+        <webinse translate="label" module="webinse_storerestriction">
+            <label>Webinse</label>
             <sort_order>100</sort_order>
-        </webinse_storerestriction>
+        </webinse>
     </tabs>
     <sections>
         <webinse_storerestriction translate="label" module="webinse_storerestriction">
             <label>Store Restriction</label>
-            <tab>webinse_storerestriction</tab>
+            <tab>webinse</tab>
             <frontend_type>text</frontend_type>
             <sort_order>1000</sort_order>
             <show_in_default>1</show_in_default>

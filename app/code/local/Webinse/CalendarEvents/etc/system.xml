@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CalendarEvents system file
+ *
+ * @category	Webinse
+ * @package 	Webinse_CalendarEvents
+ * @author  	Webinse Team <info@webinse.com>
+ * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
+ * @license 	http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+ -->
+<config>
+    <sections>
+        <webinse_calendarevents translate="label" module="webinse_calendarevents">
+            <label>Calendar Events</label>
+            <tab>webinse</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                    <configuration translate="label">
+                        <label>Configuration</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>0</sort_order>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <fields>
+                            <day_names translate="label">
+                                <label>Length of the day name</label>
+                                <frontend_type>select</frontend_type>
+                                <sort_order>0</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <source_model>webinse_calendarevents/adminhtml_dayname</source_model>
+                            </day_names>
+                            <number_of_prev_months translate="label,comment">
+                                <label>Number of the prev month(s)</label>
+                                <frontend_type>text</frontend_type>
+                                <validate>validate-number</validate>
+                                <comment>count of months, that are allowed to move back in calendar</comment>
+                                <sort_order>1</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                            </number_of_prev_months>
+                            <number_of_next_months translate="label,comment">
+                                <label>Number of the next month(s)</label>
+                                <frontend_type>text</frontend_type>
+                                <validate>validate-number</validate>
+                                <comment>count of months, that are allowed to move next in calendar</comment>
+                                <sort_order>1</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                            </number_of_next_months>
+                            <calendar_cell_size translate="label">
+                                <label>Calendar cell size</label>
+                                <frontend_type>text</frontend_type>
+                                <validate>validate-number</validate>
+                                <sort_order>1</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                            </calendar_cell_size>
+                        </fields>
+                    </configuration>
+            </groups>
+        </webinse_calendarevents>
+    </sections>
+</config>
