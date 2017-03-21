@@ -27,7 +27,7 @@
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
             <groups>
-                <configuration translate="label">
+                <general translate="label">
                     <label>General</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>0</sort_order>
@@ -72,7 +72,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </restricted_customer>
-                        <allowedcustomergroups translate="label comment">
+                        <allowedcustomergroups translate="label,comment">
                             <label>Allowed Customer Groups</label>
                             <frontend_type>multiselect</frontend_type>
                             <sort_order>40</sort_order>
@@ -83,7 +83,7 @@
                             <show_in_store>1</show_in_store>
                         </allowedcustomergroups>
                     </fields>
-                </configuration>
+                </general>
             </groups>
         </webinse_storerestriction>
     </sections>
