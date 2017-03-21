@@ -23,6 +23,13 @@ class Webinse_StoreRestriction_Model_Observer
 {
     public function storeRestriction($observer)
     {
+        /*var_dump(Mage::getStoreConfig('webinse_storerestriction/configuration/enabled'));
+        var_dump(Mage::getStoreConfig('webinse_storerestriction/configuration/restricted_store'));*/
+        var_dump(Mage::getStoreConfig('webinse_storerestriction/configuration/allowedcustomergroups'));
+        $groups = explode(",", Mage::getStoreConfig('webinse_storerestriction/configuration/allowedcustomergroups'));
+        $groupId = Mage::getSingleton('customer/session')->getCustomerGroupId();
+        var_dump($groupId);
+        var_dump($groups);
         $controller = $observer->getControllerAction();
         $request = $controller->getRequest();
         $actionName = strtolower($controller->getFullActionName());
@@ -43,22 +50,24 @@ class Webinse_StoreRestriction_Model_Observer
             'customer_account_confirm',
             'customer_account_confirmation'
         );
-        if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
-            if ($actionName == 'cms_page_view') {
-                $path = Mage::getModel('cms/page')->load($request->getParam('page_id'))->getIdentifier();
-                $pieces = explode(",", Mage::getStoreConfig('webinse_storerestriction/configuration/allow_cms_pages'));
-                if (is_null($path) || !in_array($path, $pieces)) {
+        if (Mage::getStoreConfig('webinse_storerestriction/configuration/enabled')) {
+            if (!Mage::getSingleton('customer/session')->isLoggedIn()) {
+                if ($actionName == 'cms_page_view') {
+                    $path = Mage::getModel('cms/page')->load($request->getParam('page_id'))->getIdentifier();
+                    $pieces = explode(",", Mage::getStoreConfig('webinse_storerestriction/configuration/allow_cms_pages'));
+                    if (is_null($path) || !in_array($path, $pieces)) {
+                        $flagRedirect = true;
+                    }
+                } elseif (!in_array($actionName, $openActions)) {
                     $flagRedirect = true;
                 }
-            } elseif (!in_array($actionName, $openActions)) {
-                $flagRedirect = true;
             }
-        }
-        if ($flagRedirect) {
-            Mage::getSingleton('core/session')->addError(Mage::helper('webinse_storerestriction')
-                ->__('Please login first'));
-            Mage::app()->getResponse()->setRedirect('/customer/account/login/');
-            $controller->setFlag('', 'no-dispatch', true);
+            if ($flagRedirect) {
+                Mage::getSingleton('core/session')->addError(Mage::helper('webinse_storerestriction')
+                    ->__(Mage::getStoreConfig('webinse_storerestriction/configuration/restricted_store')));
+                Mage::app()->getResponse()->setRedirect('/customer/account/login/');
+                $controller->setFlag('', 'no-dispatch', true);
+            }
         }
     }
 }
