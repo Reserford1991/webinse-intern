@@ -40,10 +40,10 @@ class Webinse_StoreRestriction_Model_Observer
                 $path = Mage::getModel('cms/page')->load($request->getParam('page_id'))->getIdentifier();
                 $configValue = explode(',', Mage::getStoreConfig('webinse_storerestriction/general/allow_cms_pages'));
                 if (is_null($path) || !in_array($path, $configValue)) {
-                    $this->redirect($controller);
+                    $this->_redirect($controller);
                 }
             } elseif (!in_array($actionName, $openActions)) {
-                $this->redirect($controller);
+                $this->_redirect($controller);
             }
         }
     }
@@ -53,7 +53,7 @@ class Webinse_StoreRestriction_Model_Observer
         return Mage::getSingleton('customer/session');
     }
 
-    protected function redirect($controller)
+    protected function _redirect($controller)
     {
         if (!$this->_getCustomer()->isLoggedIn()) {
             Mage::getSingleton('core/session')
