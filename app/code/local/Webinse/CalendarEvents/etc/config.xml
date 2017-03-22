@@ -21,6 +21,7 @@
             <webinse_calendarevents>
                 <class>Webinse_CalendarEvents_Block</class>
             </webinse_calendarevents>
+
         </blocks>
         <helpers>
             <webinse_calendarevents>
@@ -51,6 +52,15 @@
         </resources>
     </global>
     <frontend>
+        <routers>
+            <calendarevents>
+                <use>standard</use>
+                <args>
+                    <module>Webinse_CalendarEvents</module>
+                    <frontName>calendarevents</frontName>
+                </args>
+            </calendarevents>
+        </routers>
         <layout>
             <updates>
                 <webinse_calendarevents module="webinse_calendarevents">
