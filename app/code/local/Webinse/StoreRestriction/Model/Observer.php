@@ -32,9 +32,9 @@ class Webinse_StoreRestriction_Model_Observer
         $request = $controller->getRequest();
         $openActions = self::getOpenActions();
         $actionName = strtolower($controller->getFullActionName());
-        $customer = $this->getCustomer();
+        $customer = $this->_getCustomer();
         $groupId = $customer->getCustomerGroupId();
-        $groups = explode(',', Mage::getStoreConfig('webinse_storerestriction/general/allowedcustomergroups'));
+        $groups = explode(',', Mage::getStoreConfig('webinse_storerestriction/general/allowed_customer_groups'));
         if (!$customer->isLoggedIn() || !in_array($groupId, $groups)) {
             if ($actionName == 'cms_page_view') {
                 $path = Mage::getModel('cms/page')->load($request->getParam('page_id'))->getIdentifier();
@@ -48,20 +48,20 @@ class Webinse_StoreRestriction_Model_Observer
         }
     }
 
-    protected function getCustomer()
+    protected function _getCustomer()
     {
         return Mage::getSingleton('customer/session');
     }
 
     protected function redirect($controller)
     {
-        if (!$this->getCustomer()->isLoggedIn()) {
+        if (!$this->_getCustomer()->isLoggedIn()) {
             Mage::getSingleton('core/session')
-                ->addError(Mage::getStoreConfig('webinse_storerestriction/general/restricted_store'));
+                ->addError(Mage::getStoreConfig('webinse_storerestriction/general/restricted_store_error_mesage'));
             Mage::app()->getResponse()->setRedirect('/customer/account/login/');
         } else {
             Mage::getSingleton('core/session')
-                ->addError(Mage::getStoreConfig('webinse_storerestriction/general/restricted_customer'));
+                ->addError(Mage::getStoreConfig('webinse_storerestriction/general/restricted_customer_error_mesage'));
             Mage::app()->getResponse()->setRedirect('/customer/account/');
         }
         $controller->setFlag('', 'no-dispatch', true);
@@ -84,6 +84,6 @@ class Webinse_StoreRestriction_Model_Observer
             'customer_account_resetpasswordpost',
             'customer_account_confirm',
             'customer_account_confirmation',
-            );
+        );
     }
 }

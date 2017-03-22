@@ -54,7 +54,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </enabled>
-                        <restricted_store translate="label,comment">
+                        <restricted_store_error_mesage translate="label,comment">
                             <label>Restricted Store</label>
                             <comment>Restricted Store Error Message</comment>
                             <frontend_type>textarea</frontend_type>
@@ -62,8 +62,8 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </restricted_store>
-                        <restricted_customer translate="label,comment">
+                        </restricted_store_error_mesage>
+                        <restricted_customer_error_mesage translate="label,comment">
                             <label>Restricted Customer</label>
                             <comment>Restricted Customer Group Error Message</comment>
                             <frontend_type>textarea</frontend_type>
@@ -71,8 +71,8 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </restricted_customer>
-                        <allowedcustomergroups translate="label,comment">
+                        </restricted_customer_error_mesage>
+                        <allowed_customer_groups translate="label,comment">
                             <label>Allowed Customer Groups</label>
                             <frontend_type>multiselect</frontend_type>
                             <sort_order>40</sort_order>
@@ -81,7 +81,7 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                        </allowedcustomergroups>
+                        </allowed_customer_groups>
                     </fields>
                 </general>
             </groups>
