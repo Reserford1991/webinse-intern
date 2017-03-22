@@ -35,7 +35,7 @@
             </action>
             <action method="addItem">
                 <type>skin_js</type>
-                <name>js/fullcalendar.js</name>
+                <name>webinse_calendarevents/js/fullcalendar.js</name>
             </action>
         </reference>
         <reference name="content">
