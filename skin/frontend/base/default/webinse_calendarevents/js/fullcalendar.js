@@ -7,11 +7,7 @@
  * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
  * @license 	http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
-$j(document).ready(function() {
-
-
+$j(document).ready(function () {
     $j('#calendar').fullCalendar({
-
     })
-
 });
