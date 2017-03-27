@@ -21,7 +21,6 @@
             <webinse_calendarevents>
                 <class>Webinse_CalendarEvents_Block</class>
             </webinse_calendarevents>
-
         </blocks>
         <helpers>
             <webinse_calendarevents>
@@ -43,21 +42,19 @@
                 </observers>
             </adminhtml_cms_page_edit_tab_main_prepare_form>
             <cms_page_save_after>
-            <!--<controller_action_predispatch>-->
                 <observers>
                     <webinse_calendarevents_cms_page>
                         <class>webinse_calendarevents/observer</class>
                         <method>cmsPage</method>
                     </webinse_calendarevents_cms_page>
                 </observers>
-            <!--</controller_action_predispatch>-->
             </cms_page_save_after>
         </events>
         <template>
             <email>
                 <webinse_calendarevents_email_email_template module="Webinse_CalendarEvents">
                     <label>Notification Mail</label>
-                    <file>testmail.html</file>
+                    <file>notificationMail.html</file>
                     <type>html</type>
                 </webinse_calendarevents_email_email_template>
             </email>
@@ -97,7 +94,7 @@
                 <calendar_cell_size>1</calendar_cell_size>
             </configuration>
             <email>
-                <email_subject>Test</email_subject>
+                <email_subject>Notification</email_subject>
                 <email_template>1</email_template>
             </email>
         </webinse_calendarevents>
