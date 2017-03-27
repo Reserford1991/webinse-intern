@@ -33,7 +33,6 @@
                 now.setMonth(month - <?php echo $this->getNumberOfPrevMonths() ?>);
                 end.setMonth(month + <?php echo $this->getNumberOfNextMonths() ?>);
 
-
                 if (end < view.end) {
                     $j("#calendar .fc-next-button").hide();
                     return false;
