@@ -11,11 +11,6 @@
  */
 -->
 <layout version="0.1.0">
-    <default>
-        <reference name="head">
-            <action method="addJs"><file>jscolor/jscolor.js</file></action>
-        </reference>
-    </default>
     <customer_account>       
         <reference name="customer_account_navigation">           
             <action method="addLink" translate="label" module="webinse_calendarevents">               

@@ -20,20 +20,21 @@
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
 ?>
-<?php $collection = $this->getAllEvents();?>
+<?php $collection = $this->getAllEvents(); ?>
 <script>
     $j(document).ready(function () {
         $j('#calendar').fullCalendar({
-            events: JSON.parse('<?php echo $this->getAllEvents() ?>'),
+            events: <?php echo $this->getAllEvents() ?>,
 
-            viewRender: function(view,element) {
+            viewRender: function (view, element) {
                 var now = new Date();
                 var end = new Date();
-                now.setMonth(now.getMonth() - <?php echo $this->getNumberOfPrevMonths() ?>);
-                end.setMonth(now.getMonth() + <?php echo $this->getNumberOfNextMonths() ?>);
+                var month = now.getMonth();
+                now.setMonth(month - <?php echo $this->getNumberOfPrevMonths() ?>);
+                end.setMonth(month + <?php echo $this->getNumberOfNextMonths() ?>);
 
 
-                if ( end < view.end) {
+                if (end < view.end) {
                     $j("#calendar .fc-next-button").hide();
                     return false;
                 }
@@ -41,7 +42,7 @@
                     $j("#calendar .fc-next-button").show();
                 }
 
-                if ( view.start < now) {
+                if (view.start < now) {
                     $j("#calendar .fc-prev-button").hide();
                     return false;
                 }

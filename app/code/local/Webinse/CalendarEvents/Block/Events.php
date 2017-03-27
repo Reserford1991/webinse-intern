@@ -32,7 +32,7 @@ class Webinse_CalendarEvents_Block_Events extends Mage_Core_Block_Template
             ->addFieldToSelect('date_to', 'end')
             ->addFieldToSelect('color', 'color')
             ->getData();
-        return json_encode($collection);
+        return Mage::helper('core')->jsonEncode($collection);
     }
 
     public function getNumberOfPrevMonths()
