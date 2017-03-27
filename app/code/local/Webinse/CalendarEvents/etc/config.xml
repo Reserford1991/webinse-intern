@@ -55,11 +55,11 @@
         </events>
         <template>
             <email>
-                <notification_mail module="Webinse_CalendarEvents">
-                    <label>Test Mail</label>
+                <webinse_calendarevents_email_email_template module="Webinse_CalendarEvents">
+                    <label>Notification Mail</label>
                     <file>testmail.html</file>
                     <type>html</type>
-                </notification_mail>
+                </webinse_calendarevents_email_email_template>
             </email>
         </template>
         <resources>
