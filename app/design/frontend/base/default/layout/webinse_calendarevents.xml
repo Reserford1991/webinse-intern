@@ -51,7 +51,6 @@
             </action>
           </reference>
         <reference name="content">
-            <block type="webinse_calendarevents/events" name="calendarEvents" as="calendarEvents" template="webinse_calendarevents/data.phtml" />
             <block type="webinse_calendarevents/events" name="allevents" as="calendarEvents" template="webinse_calendarevents/calendarevents.phtml"/>
         </reference>
     </calendarevents_customer_index>
