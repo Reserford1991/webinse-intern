@@ -52,8 +52,7 @@
         </events>
         <template>                        
             <email>                                
-                <webinse_calendarevents_email_email_template translate="label"
-                                                                         module="webinse_calendarevent">                                        
+                <webinse_calendarevents_email_email_template translate="label" module="webinse_calendarevent">                                        
                     <label>Email Notification</label>                                        
                     <file>webinse_calendarevent/email_notification.html</file>                                        
                     <type>html</type>                                    

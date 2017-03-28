@@ -54,34 +54,28 @@ class Webinse_CalendarEvents_Model_Observer
 
     public function cmsPage($observer)
     {
-        $templateId = Mage::getStoreConfig('webinse_calendarevents/email/email_template');
-        $subject = Mage::getStoreConfig('webinse_calendarevents/email/email_subject');
+        $emailTemplate  = Mage::getModel('core/email_template');
+        $emailTemplate->loadDefault('webinse_calendarevents_email_email_template');
+
+        $pageId =  Mage::app()->getRequest()->getParam('page_id');
+        $pageTitle = Mage::app()->getRequest()->getParam('title');
+        $url = Mage::getStoreConfig(Mage_Core_Model_Url::XML_PATH_SECURE_URL);
+        $calendarLink = $url.'/calendarevents/customer/index/';
 
         $sender = Mage::getStoreConfig('webinse_calendarevents/email/sender_email_identity');
         $recipientEmail = Mage::getStoreConfig('webinse_calendarevents/email/recipient_email');
         $recipientName = Mage::getStoreConfig('webinse_calendarevents/email/recipient_name');
+        $emailSubject = Mage::getStoreConfig('webinse_calendarevents/email/email_subject');
+        $senderEmail = Mage::getStoreConfig('trans_email/ident_'.$sender.'/email');
 
-        $vars = array (
-            'subject' => $subject,
-            'cmsPageId' => Mage::app()->getRequest()->getParam('page_id'),
-            'cmsPageTitle' => Mage::app()->getRequest()->getParam('title'),
-            'calendarLink' => 'calendarevents/customer/index',
-            );
+        $emailTemplate->setTemplateSubject($emailSubject);
+        $emailTemplate->setSenderName($sender);
+        $emailTemplate->setSenderEmail($senderEmail);
 
-        $emailTemplate = Mage::getModel('core/email_template_mailer');
-        $emailInfo = Mage::getModel('core/email_info');
-        $emailInfo->addTo($recipientEmail, $recipientName);
-        $emailTemplate->addEmailInfo($emailInfo);
+        $emailTemplateVariables['cmsPageId'] = $pageId;
+        $emailTemplateVariables['cmsPageTitle'] = $pageTitle;
+        $emailTemplateVariables['calendarLink'] = $calendarLink;
+        $emailTemplate->send($recipientEmail, $recipientName, $emailTemplateVariables);
 
-        $emailTemplate->setSender($sender);
-        $emailTemplate->setTemplateId($templateId);
-        $emailTemplate->setTemplateParams($vars);
-
-       try {
-            $emailTemplate->send();
-            Mage::getSingleton('core/session')->addSuccess('Email has been sent!');
-        } catch (Exception $ex) {
-            Mage::getSingleton('core/session')->addError('Unable to send...');
-        }
     }
 }
