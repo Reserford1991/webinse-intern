@@ -1,4 +1,15 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
+<!--
+/**
+ * Frontend layout of module
+ *
+ * @category    Webinse
+ * @package     Webinse_CalendarEvents
+ * @author      Webinse Team <info@webinse.com>
+ * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
+ * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+-->
 <layout version="0.1.0">
     <customer_account>       
         <reference name="customer_account_navigation">           
@@ -33,13 +44,9 @@
                 <type>skin_js</type>
                 <name>full_calendar/fullcalendar.min.js</name>
             </action>
-            <action method="addItem">
-                <type>skin_js</type>
-                <name>webinse_calendarevents/js/fullcalendar.js</name>
-            </action>
-        </reference>
+          </reference>
         <reference name="content">
-            <block type="core/template" name="allevents" template="webinse_calendarevents/calendarevents.phtml"/>
+            <block type="webinse_calendarevents/events" name="allevents" as="calendarEvents" template="webinse_calendarevents/calendarevents.phtml"/>
         </reference>
     </calendarevents_customer_index>
 </layout>
