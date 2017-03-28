@@ -50,14 +50,17 @@
                 </observers>
             </cms_page_save_after>
         </events>
-        <template>
-            <email>
-                <webinse_calendarevents_email_email_template module="Webinse_CalendarEvents">
-                    <label>Notification</label>
-                    <file>notification.html</file>
-                    <type>html</type>
+        <template>                        
+            <email>                                
+                <webinse_calendarevents_email_email_template translate="label"
+                                                                         module="webinse_calendarevent">                                        
+                    <label>Email Notification</label>                                        
+                    <file>webinse_calendarevent/email_notification.html</file>                                        
+                    <type>html</type>                                    
                 </webinse_calendarevents_email_email_template>
+                            
             </email>
+                    
         </template>
         <resources>
             <webinse_calendarevents_setup>
@@ -94,8 +97,11 @@
                 <calendar_cell_size>1</calendar_cell_size>
             </configuration>
             <email>
+                <sender_email_identity>general</sender_email_identity>
+                <recipient_email>customer@mail.com</recipient_email>
+                <recipient_name>Customer</recipient_name>
                 <email_subject>Notification</email_subject>
-                <email_template>1</email_template>
+                <email_template>webinse_calendarevents_email_email_template</email_template>
             </email>
         </webinse_calendarevents>
     </default>

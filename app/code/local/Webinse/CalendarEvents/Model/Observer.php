@@ -56,28 +56,28 @@ class Webinse_CalendarEvents_Model_Observer
     {
         $templateId = Mage::getStoreConfig('webinse_calendarevents/email/email_template');
         $subject = Mage::getStoreConfig('webinse_calendarevents/email/email_subject');
-        $sender = Mage::getStoreConfig('webinse_calendarevents/email/sender_email_identity');
 
+        $sender = Mage::getStoreConfig('webinse_calendarevents/email/sender_email_identity');
         $recipientEmail = Mage::getStoreConfig('webinse_calendarevents/email/recipient_email');
         $recipientName = Mage::getStoreConfig('webinse_calendarevents/email/recipient_name');
 
-        $vars = array(
+        $vars = array (
             'subject' => $subject,
             'cmsPageId' => Mage::app()->getRequest()->getParam('page_id'),
             'cmsPageTitle' => Mage::app()->getRequest()->getParam('title'),
             'calendarLink' => 'calendarevents/customer/index',
-        );
+            );
 
         $emailTemplate = Mage::getModel('core/email_template_mailer');
         $emailInfo = Mage::getModel('core/email_info');
         $emailInfo->addTo($recipientEmail, $recipientName);
-
         $emailTemplate->addEmailInfo($emailInfo);
+
         $emailTemplate->setSender($sender);
         $emailTemplate->setTemplateId($templateId);
         $emailTemplate->setTemplateParams($vars);
 
-        try {
+       try {
             $emailTemplate->send();
             Mage::getSingleton('core/session')->addSuccess('Email has been sent!');
         } catch (Exception $ex) {
