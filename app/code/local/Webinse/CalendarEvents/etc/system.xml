@@ -141,7 +141,7 @@
                         </font_color>
                         <font_family translate="label">
                             <label>Font family</label>
-                            <frontend_type>multiselect</frontend_type>
+                            <frontend_type>select</frontend_type>
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>

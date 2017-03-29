@@ -52,19 +52,10 @@ class Webinse_CalendarEvents_Block_Events extends Mage_Core_Block_Template
 
     public function getFontFamily()
     {
-        $pieces = explode(",", Mage::getStoreConfig('webinse_calendarevents/calendar_design/font_family'));
-        $fonts = array();
-        if(in_array(0, $pieces)){
-            array_push($fonts, 'Arial');
-        }
-        if(in_array(1, $pieces)){
-            array_push($fonts, "'Times New Roman'");
-        }
-        if(in_array(2, $pieces)){
-            array_push($fonts, 'Verdana');
-        }
-        $pieces = implode(", ", $fonts);
-        return $pieces;
+        $choise = Mage::getStoreConfig('webinse_calendarevents/calendar_design/font_family');
+        $_options = Mage::getModel('webinse_calendarevents/adminhtml_fonts')->getOptions();
+        $font = $_options[$choise]['font'];
+        return $font;
     }
 
     public function getFontSize()

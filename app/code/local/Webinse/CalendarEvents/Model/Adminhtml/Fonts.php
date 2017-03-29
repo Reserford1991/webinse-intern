@@ -30,8 +30,29 @@ class Webinse_CalendarEvents_Model_Adminhtml_Fonts
     {
         return array(
             array('value' => self::ARIAL, 'label' => Mage::helper('webinse_calendarevents')->__('Arial')),
-            array('value' => self::TIMES_NEW_ROMAN, 'label' => Mage::helper('webinse_calendarevents')->__('Times New Romen')),
+            array('value' => self::TIMES_NEW_ROMAN, 'label' => Mage::helper('webinse_calendarevents')->__('Times New Roman')),
             array('value' => self::VERDANA, 'label' => Mage::helper('webinse_calendarevents')->__('Verdana')),
+        );
+    }
+
+    public function getOptions()
+    {
+        return array(
+            array(
+                'value' => self::ARIAL,
+                'label' => Mage::helper('webinse_calendarevents')->__('Arial'),
+                'font' => "Arial"
+            ),
+            array(
+                'value' => self::TIMES_NEW_ROMAN,
+                'label' => Mage::helper('webinse_calendarevents')->__('Times New Roman'),
+                'font' => "'Times New Roman'"
+            ),
+            array(
+                'value' => self::VERDANA,
+                'label' => Mage::helper('webinse_calendarevents')->__('Verdana'),
+                'font' => "Verdana"
+            ),
         );
     }
 }
