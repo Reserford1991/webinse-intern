@@ -47,9 +47,6 @@
     </customer_account>
     <calendarevents_customer_index>
         <update handle="customer_account"/>
-        <reference name="left">
-            <block type="webinse_calendarevents/Widget" name="allevents" as="calendarEvents" template="webinse_calendarevents/calendarevents_widget.phtml"/>
-        </reference>
         <reference name="content">
             <block type="webinse_calendarevents/events" name="allevents" as="calendarEvents" template="webinse_calendarevents/calendarevents.phtml"/>
         </reference>

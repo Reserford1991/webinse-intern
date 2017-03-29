@@ -11,8 +11,16 @@
  */
  -->
 <widgets>
-<webinse_calendarevents type="webinse_calendarevents/Widget" translate="name,description" module="webinse_calendarevents">
-    <name>Calendar Events Widget</name>
-    <description>Places calendarevents widget in left bar</description>
-</webinse_calendarevents>
+    <webinse_calendarevents type="webinse_calendarevents/Widget" translate="name,description"
+                            module="webinse_calendarevents">
+        <name>Calendar Events Widget</name>
+        <description>Places calendarevents widget in left bar</description>
+        <parameters>-->
+            <title translate="label">
+                <visible>1</visible>
+                <label>Anchor Custom Title</label>
+                <type>text</type>
+            </title>
+        </parameters>
+    </webinse_calendarevents>
 </widgets>

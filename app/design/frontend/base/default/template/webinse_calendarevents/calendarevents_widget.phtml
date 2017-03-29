@@ -22,8 +22,7 @@
 ?>
 <script>
     $j(document).ready(function () {
-        $j('#calendar_widget').fullCalendar({
-
+        $j('.fc-widget').fullCalendar({
             eventAfterRender: function (event, element, view) {
                 element.css('color', '#<?php echo $this->getFontColor(); ?>');        // text-color for all events
                 element.css('font-family', "<?php echo $this->getFontFamily() ?>"); // font family for all events
@@ -41,23 +40,23 @@
                 end.setMonth(month + <?php echo $this->getNumberOfNextMonths() ?>);
 
                 if (end < view.end) {
-                    $j("#calendar_widget .fc-next-button").hide();
+                    $j(".fc-widget .fc-next-button").hide();
                     return false;
                 }
                 else {
-                    $j("#calendar .fc-next-button").show();
+                    $j(".fc-widget .fc-next-button").show();
                 }
 
                 if (view.start < now) {
-                    $j("#calendar_widget .fc-prev-button").hide();
+                    $j(".fc-widget .fc-prev-button").hide();
                     return false;
                 }
                 else {
-                    $j("#calendar_widget .fc-prev-button").show();
+                    $j(".fc-widget .fc-prev-button").show();
                 }
             }
         })
     });
 </script>
 <div>Event Calendar</div>
-<div id='calendar_widget'></div>
+<div class="fc-widget"></div>
