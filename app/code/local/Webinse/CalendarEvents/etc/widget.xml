@@ -15,10 +15,10 @@
                             module="webinse_calendarevents">
         <name>Calendar Events Widget</name>
         <description>Places calendarevents widget in left bar</description>
-        <parameters>-->
+        <parameters>
             <title translate="label">
                 <visible>1</visible>
-                <label>Anchor Custom Title</label>
+                <label>Widget Custom Title</label>
                 <type>text</type>
             </title>
         </parameters>

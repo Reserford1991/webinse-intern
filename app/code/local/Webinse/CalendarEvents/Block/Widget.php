@@ -26,4 +26,11 @@ class Webinse_CalendarEvents_Block_Widget extends Webinse_CalendarEvents_Block_E
         $this->setTemplate('webinse_calendarevents/calendarevents_widget.phtml');
         return parent::_toHtml();
     }
+
+    public function getTitle()
+    {
+        $title = $this->getData('title');
+        return $title;
+    }
+
 }
