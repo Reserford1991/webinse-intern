@@ -50,6 +50,12 @@ class Webinse_CalendarEvents_Model_Observer
             'image' => $image,
             'format' => $format,
         ));
+
+        $fieldset->addField('color', 'text', array(
+            'label' => __('Color'),
+            'class' => 'color {required:false, adjust:false, hash:true}',
+            'name' => 'color',
+        ));
     }
 
     public function cmsPage($observer)
