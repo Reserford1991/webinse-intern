@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<widgets>
+<webinse_calendarevents type="webinse_calendarevents/Widget" translate="name,description" module="webinse_calendarevents">
+    <name>Calendar Events Widget</name>
+    <description>Places calendarevents widget in left bar</description>
+</webinse_calendarevents>
+</widgets>
