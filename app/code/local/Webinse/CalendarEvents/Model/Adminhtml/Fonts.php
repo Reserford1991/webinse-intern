@@ -31,18 +31,18 @@ class Webinse_CalendarEvents_Model_Adminhtml_Fonts
             'label' => 'Arial',
             'value' => self::ARIAL,
             'font' => 'Arial',
-            ),
+        ),
         self::TIMES_NEW_ROMAN => array(
             'label' => 'Times New Roman',
             'value' => self::TIMES_NEW_ROMAN,
             'font' => "'Times New Roman'",
-            ),
+        ),
         self::VERDANA => array(
             'label' => 'Verdana',
             'value' => self::VERDANA,
             'font' => 'Verdana',
         ),
-);
+    );
 
 
     public function toOptionArray()
