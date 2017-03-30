@@ -1,0 +1,62 @@
+<?php
+/**
+ * Webinse
+ *
+ * PHP Version 5.6.23
+ *
+ * @category    Webinse
+ * @package     Webinse_CalendarEvents
+ * @author      Webinse Team <info@webinse.com>
+ * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
+ * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+/**
+ * Template for Webinse_CalendarEvents
+ *
+ * @category    Webinse
+ * @package     Webinse_CalendarEvents
+ * @author      Webinse Team <info@webinse.com>
+ * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
+ * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+?>
+<script>
+    $j(document).ready(function () {
+        $j('.fc-widget').fullCalendar({
+            eventAfterRender: function (event, element, view) {
+                element.css('color', '#<?php echo $this->getFontColor(); ?>');        // text-color for all events
+                element.css('font-family', "<?php echo $this->getFontFamily() ?>"); // font family for all events
+                element.css('font-size', "<?php echo $this->getFontSize(); ?>px");       // font size for all events
+            },
+
+            events: <?php echo $this->getAllEvents() ?>,
+
+
+            viewRender: function (view, element) {
+                var now = new Date();
+                var end = new Date();
+                var month = now.getMonth();
+                now.setMonth(month - <?php echo $this->getNumberOfPrevMonths() ?>);
+                end.setMonth(month + <?php echo $this->getNumberOfNextMonths() ?>);
+
+                if (end < view.end) {
+                    $j(".fc-widget .fc-next-button").hide();
+                    return false;
+                }
+                else {
+                    $j(".fc-widget .fc-next-button").show();
+                }
+
+                if (view.start < now) {
+                    $j(".fc-widget .fc-prev-button").hide();
+                    return false;
+                }
+                else {
+                    $j(".fc-widget .fc-prev-button").show();
+                }
+            }
+        })
+    });
+</script>
+<div><?php echo $this->getTitle() ?></div>
+<div class="fc-widget"></div>
