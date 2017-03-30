@@ -69,13 +69,11 @@ class Webinse_CalendarEvents_Block_Events extends Mage_Core_Block_Template
 
     public function getBorderColor()
     {
-        $color = Mage::getStoreConfig('webinse_calendarevents/calendar_design/border_color');
-        return $color;
+        return Mage::getStoreConfig('webinse_calendarevents/calendar_design/border_color');
     }
 
     public function getBorderSize()
     {
-        $size = Mage::getStoreConfig('webinse_calendarevents/calendar_design/border_width');
-        return $size;
+        return Mage::getStoreConfig('webinse_calendarevents/calendar_design/border_width');
     }
 }
