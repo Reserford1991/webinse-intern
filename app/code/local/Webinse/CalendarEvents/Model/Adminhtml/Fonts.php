@@ -26,6 +26,13 @@ class Webinse_CalendarEvents_Model_Adminhtml_Fonts
     const TIMES_NEW_ROMAN = 1;
     const VERDANA = 2;
 
+    protected $_options = array(
+        0 => "Arial",
+        1 => "'Times New Roman'",
+        2 => "Verdana"
+    );
+
+
     public function toOptionArray()
     {
         return array(
@@ -35,24 +42,10 @@ class Webinse_CalendarEvents_Model_Adminhtml_Fonts
         );
     }
 
-    public function getOptions()
+    public function getFontById()
     {
-        return array(
-            array(
-                'value' => self::ARIAL,
-                'label' => Mage::helper('webinse_calendarevents')->__('Arial'),
-                'font' => "Arial"
-            ),
-            array(
-                'value' => self::TIMES_NEW_ROMAN,
-                'label' => Mage::helper('webinse_calendarevents')->__('Times New Roman'),
-                'font' => "'Times New Roman'"
-            ),
-            array(
-                'value' => self::VERDANA,
-                'label' => Mage::helper('webinse_calendarevents')->__('Verdana'),
-                'font' => "Verdana"
-            ),
-        );
+        $choise = Mage::getStoreConfig('webinse_calendarevents/calendar_design/font_family');
+        $font = $this->_options[$choise];
+        return $font;
     }
 }
