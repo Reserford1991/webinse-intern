@@ -52,7 +52,8 @@ class Webinse_CalendarEvents_Block_Events extends Mage_Core_Block_Template
 
     public function getFontFamily()
     {
-        return Mage::getModel('webinse_calendarevents/adminhtml_fonts')->getFontById();
+        $choise = Mage::getStoreConfig('webinse_calendarevents/calendar_design/font_family');
+        return Mage::getModel('webinse_calendarevents/adminhtml_fonts')->getFontById($choise);
     }
 
     public function getFontSize()
