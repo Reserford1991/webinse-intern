@@ -46,12 +46,12 @@ $installer->getConnection()
         'comment' => 'Date To'
     ));
 
-$installer->getConnection()
-    ->addColumn($installer->getTable('cms/page'), 'color', array(
-        'type' => Varien_Db_Ddl_Table::TYPE_TEXT,
-        'nullable' => true,
-        'comment' => 'Color',
-        'value'     => $value
-    ));
+//$installer->getConnection()
+//    ->addColumn($installer->getTable('cms/page'), 'color', array(
+//        'type' => Varien_Db_Ddl_Table::TYPE_TEXT,
+//        'nullable' => true,
+//        'comment' => 'Color',
+//        'value'     => $value
+//    ));
 
 $installer->endSetup();
