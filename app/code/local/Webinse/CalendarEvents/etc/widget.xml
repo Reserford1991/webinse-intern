@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CalendarEvents widget file
+ *
+ * @category	Webinse
+ * @package 	Webinse_CalendarEvents
+ * @author  	Webinse Team <info@webinse.com>
+ * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
+ * @license 	http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+ -->
+<widgets>
+    <webinse_calendarevents type="webinse_calendarevents/Widget" translate="name,description"
+                            module="webinse_calendarevents">
+        <name>Calendar Events Widget</name>
+        <description>Places calendarevents widget in left bar</description>
+        <parameters>
+            <title translate="label">
+                <visible>1</visible>
+                <label>Widget Custom Title</label>
+                <type>text</type>
+            </title>
+        </parameters>
+    </webinse_calendarevents>
+</widgets>
