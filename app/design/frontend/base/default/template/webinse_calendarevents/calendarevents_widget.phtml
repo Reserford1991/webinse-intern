@@ -27,6 +27,9 @@
                 element.css('color', '#<?php echo $this->getFontColor(); ?>');        // text-color for all events
                 element.css('font-family', "<?php echo $this->getFontFamily() ?>"); // font family for all events
                 element.css('font-size', "<?php echo $this->getFontSize(); ?>px");       // font size for all events
+                element.css('font-style', "<?php echo $this->getFontStyle(); ?>");
+                element.css('border-color', '#<?php echo $this->getBorderColor(); ?>');
+                element.css('border-width', "<?php echo $this->getBorderSize(); ?>px");
             },
 
             events: <?php echo $this->getAllEvents() ?>,

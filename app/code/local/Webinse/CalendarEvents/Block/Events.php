@@ -60,4 +60,22 @@ class Webinse_CalendarEvents_Block_Events extends Mage_Core_Block_Template
     {
         return Mage::getStoreConfig('webinse_calendarevents/calendar_design/font_size');
     }
+
+    public function getFontStyle()
+    {
+        $choise = Mage::getStoreConfig('webinse_calendarevents/calendar_design/font_style');
+        return Mage::getModel('webinse_calendarevents/adminhtml_fontStyle')->getFontStyleById($choise);
+    }
+
+    public function getBorderColor()
+    {
+        $color = Mage::getStoreConfig('webinse_calendarevents/calendar_design/border_color');
+        return $color;
+    }
+
+    public function getBorderSize()
+    {
+        $size = Mage::getStoreConfig('webinse_calendarevents/calendar_design/border_width');
+        return $size;
+    }
 }
