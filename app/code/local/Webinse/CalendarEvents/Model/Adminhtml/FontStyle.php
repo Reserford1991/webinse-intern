@@ -45,7 +45,6 @@ class Webinse_CalendarEvents_Model_Adminhtml_FontStyle
 
     public function getFontStyleById($choise)
     {
-        $fontStyle = $this->_options[$choise]['font-style'];
-        return $fontStyle;
+        return $this->_options[$choise]['font-style'];
     }
 }
