@@ -44,4 +44,20 @@ class Webinse_CalendarEvents_Block_Events extends Mage_Core_Block_Template
     {
         return Mage::getStoreConfig('webinse_calendarevents/configuration/number_of_next_months');
     }
+
+    public function getFontColor()
+    {
+        return Mage::getStoreConfig('webinse_calendarevents/calendar_design/font_color');
+    }
+
+    public function getFontFamily()
+    {
+        $choise = Mage::getStoreConfig('webinse_calendarevents/calendar_design/font_family');
+        return Mage::getModel('webinse_calendarevents/adminhtml_fonts')->getFontById($choise);
+    }
+
+    public function getFontSize()
+    {
+        return Mage::getStoreConfig('webinse_calendarevents/calendar_design/font_size');
+    }
 }
