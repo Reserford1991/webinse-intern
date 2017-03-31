@@ -11,7 +11,7 @@
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
 /**
- * Adminhtml company edit form block
+ * Resource Collection model Company
  *
  * @category    Webinse
  * @package     Webinse_Company
@@ -19,16 +19,10 @@
  * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
-class Webinse_Company_Block_Adminhtml_Company_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
+class Webinse_Company_Model_Resource_Addresses_Collection extends Mage_Core_Model_Resource_Db_Collection_Abstract
 {
-    protected function _prepareForm()
+    protected function _construct()
     {
-        $form = new Varien_Data_Form(array('id' => 'edit_form', 'action' => $this->getData('action'), 'method' => 'post'));
-        $form->setMethod('post');
-        $form->setId('edit_form');
-        $form->setAction($this->getUrl('*/*/save'));
-        $form->setUseContainer(true);
-        $this->setForm($form);
-        return parent::_prepareForm();
+        $this->_init('webinse_company/addresses');
     }
 }

@@ -21,7 +21,7 @@
  */
 $installer = $this;
 $installer->startSetup();
-$tableName = $installer->getTable('webinse_company/companies');
+$tableName = $installer->getTable('webinse_company/addresses');
 
 if (!($installer->getConnection()->isTableExists($tableName))) {
     $table = $installer->getConnection()
@@ -61,7 +61,7 @@ if (!($installer->getConnection()->isTableExists($tableName))) {
         ))
         ->addForeignKey(
             $installer->getFkName(
-                'webinse_company/companies',
+                'webinse_company/addresses',
                 'company_id',
                 'webinse_company/company',
                 'entity_id'

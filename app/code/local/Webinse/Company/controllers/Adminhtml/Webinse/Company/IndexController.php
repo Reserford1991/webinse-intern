@@ -27,9 +27,11 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
         $helper = Mage::helper('webinse_company');
         $this->_title($helper->__('Webinse'))->_title($helper->__('Company'));
         Mage::register('current_company', Mage::getModel('webinse_company/company'));
+        Mage::register('current_addresses', Mage::getModel('webinse_company/addresses'));
         $companyId = (int)$this->getRequest()->getParam('id');
         if (!is_null($companyId)) {
             Mage::registry('current_company')->load($companyId);
+            Mage::registry('current_addresses')->load($companyId);
         }
     }
 
@@ -86,13 +88,22 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
 
     public function saveAction()
     {
+        $this->_initCompany();
+        $company = Mage::registry('current_company');
+        $address = Mage::registry('current_addresses');
+
+
         $data = $this->getRequest()->getPost();
-        if (!empty($data)) {
-            $model = Mage::getModel('webinse_company/company');
-            $model->setData($data);
+        $companyData = array();
+        if ($data) {
+            /*$companyModel = Mage::getModel('webinse_company/company');
+            $companyModel->setData($data);
+            $addressesModel = Mage::getModel('webinse_company/addresses');
+            $addressesModel->setData($data);*/
             try {
-                $model->validate();
-                $model->save();
+                $company->validate();
+                $company->save();
+                //$addressesModel->save();
             } catch
             (Mage_Core_Exception $e) {
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());

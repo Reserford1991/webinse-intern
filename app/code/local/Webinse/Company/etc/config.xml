@@ -28,9 +28,9 @@
                     <company>
                         <table>webinse_company</table>
                     </company>
-                    <companies>
+                    <addresses>
                         <table>webinse_addresses</table>
-                    </companies>
+                    </addresses>
                 </entities>
             </webinse_company_resource>
         </models>

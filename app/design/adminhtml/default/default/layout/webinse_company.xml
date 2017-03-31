@@ -16,4 +16,25 @@
             <block type="webinse_company/adminhtml_company" name="company"></block>
         </reference>
     </adminhtml_webinse_company_index_index>
+
+    <adminhtml_webinse_company_index_new>                
+        <update handle="editor"/>                
+        <reference name="content">                        
+            <block type="webinse_company/adminhtml_company_edit" name="webinse_company"/>                    
+        </reference>                
+        <reference name="left">                        
+            <block type="webinse_company/adminhtml_company_edit_tabs" name="edit_tabs">                                
+                <block type="webinse_company/adminhtml_company_edit_tab_main" name="edit_tab_main"/>                                
+                <block type="webinse_company/adminhtml_company_edit_tab_addres" name="edit_tab_addres"/>                                
+                <action method="addTab">
+                    <name>main_section</name>
+                    <block>webinse_company/adminhtml_company_edit_tab_main</block>
+                </action>                                
+                <action method="addTab">
+                    <name>addres_section</name>
+                    <block>webinse_company/adminhtml_company_edit_tab_addres</block>
+                </action>                            
+            </block>                    
+        </reference>            
+    </adminhtml_webinse_company_index_new>
 </layout>
