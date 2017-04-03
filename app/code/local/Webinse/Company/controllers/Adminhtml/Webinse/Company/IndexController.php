@@ -31,7 +31,7 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
         $companyId = (int)$this->getRequest()->getParam('id');
         if (!is_null($companyId)) {
             Mage::registry('current_company')->load($companyId);
-            Mage::registry('current_addresses')->load($companyId);
+            Mage::registry('current_addresses')->load($companyId, 'company_id');
         }
     }
 

@@ -30,7 +30,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Addres
 
         $form = new Varien_Data_Form();
 
-        $form->setHtmlIdPrefix('company_');
+        $form->setHtmlIdPrefix('addresses_');
 
         $fieldset = $form->addFieldset('base_fieldset', array('legend' => Mage::helper('webinse_company')->__('Address Information')));
 

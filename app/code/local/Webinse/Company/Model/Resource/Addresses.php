@@ -23,6 +23,6 @@ class Webinse_Company_Model_Resource_Addresses extends Mage_Core_Model_Resource_
 {
     public function _construct()
     {
-        $this->_init('webinse_company/addresses', 'company_id');
+        $this->_init('webinse_company/addresses', 'entity_id');
     }
 }
