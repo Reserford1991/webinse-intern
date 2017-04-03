@@ -77,7 +77,6 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
         $this->_initCompany();
         $this->loadLayout();
         $this->_setActiveMenu('webinse_company');
-        $this->_addContent($this->getLayout()->createBlock('webinse_company/adminhtml_company_edit'));
         $this->renderLayout();
     }
 
