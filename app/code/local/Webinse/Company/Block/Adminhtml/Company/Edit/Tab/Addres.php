@@ -77,6 +77,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Addres
             'label' => Mage::helper('webinse_company')->__('State/Provinse'),
             'title' => Mage::helper('webinse_company')->__('State/Provinse'),
             'required' => true,
+            'value' => 'USA',
             'class' => 'validate-alphanum',
         ));
 
