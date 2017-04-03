@@ -68,7 +68,7 @@ class Webinse_Company_Model_Company extends Mage_Core_Model_Abstract
         }
 
         if ($error) {
-            Mage::throwException('Please fill all required fields correctly');
+            Mage::throwException('Please fill all required fields for company information correctly');
         }
 
         return $this;

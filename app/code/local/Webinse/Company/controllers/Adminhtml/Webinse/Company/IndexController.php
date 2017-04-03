@@ -92,18 +92,11 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
         $company = Mage::registry('current_company');
         $address = Mage::registry('current_addresses');
 
-
         $data = $this->getRequest()->getPost();
-        $companyData = array();
         if ($data) {
-            /*$companyModel = Mage::getModel('webinse_company/company');
-            $companyModel->setData($data);
-            $addressesModel = Mage::getModel('webinse_company/addresses');
-            $addressesModel->setData($data);*/
             try {
-                $company->validate();
-                $company->save();
-                //$addressesModel->save();
+                $company->addData($data['company'])->validate()->save();
+                $address->addData($data['addresses'])->validate()->save();
             } catch
             (Mage_Core_Exception $e) {
                 Mage::getSingleton('adminhtml/session')->addError($e->getMessage());

@@ -11,7 +11,7 @@
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
 /**
- * Adminhtml company edit form block
+ * Adminhtml company edit form address block
  *
  * @category    Webinse
  * @package     Webinse_Company
@@ -26,85 +26,94 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Addres
 
     protected function _prepareForm()
     {
-        $model = Mage::registry('current_addresses');
+        $addresses = Mage::registry('current_addresses');
 
         $form = new Varien_Data_Form();
 
         $form->setHtmlIdPrefix('company_');
 
-        $fieldset = $form->addFieldset('base_fieldset', array('legend'=>Mage::helper('webinse_company')->__('Address Information')));
+        $fieldset = $form->addFieldset('base_fieldset', array('legend' => Mage::helper('webinse_company')->__('Address Information')));
 
-        if ($model->getPageId()) {
+        if ($addresses->getPageId()) {
             $fieldset->addField('company_id', 'hidden', array(
-                'name' => 'company_id',
-                ));
+                'name' => 'addresses[company_id]',
+            ));
         }
 
         $fieldset->addField('first_name', 'text', array(
-            'name' => 'first_name',
+            'name' => 'addresses[first_name]',
             'label' => Mage::helper('webinse_company')->__('First Name'),
             'title' => Mage::helper('webinse_company')->__('First Name'),
             'required' => true,
+            'class' => 'validate-alphanum',
         ));
 
         $fieldset->addField('last_name', 'text', array(
-            'name' => 'last_name',
+            'name' => 'addresses[last_name]',
             'label' => Mage::helper('webinse_company')->__('Last Name'),
             'title' => Mage::helper('webinse_company')->__('Last Name'),
             'required' => true,
+            'class' => 'validate-alphanum',
         ));
 
         $fieldset->addField('street_address', 'text', array(
-            'name' => 'street_address',
+            'name' => 'addresses[street_address]',
             'label' => Mage::helper('webinse_company')->__('Street Address'),
             'title' => Mage::helper('webinse_company')->__('Street Address'),
             'required' => true,
+            'class' => 'validate-alphanum',
         ));
 
         $fieldset->addField('city', 'text', array(
-            'name' => 'city',
+            'name' => 'addresses[city]',
             'label' => Mage::helper('webinse_company')->__('City'),
             'title' => Mage::helper('webinse_company')->__('City'),
             'required' => true,
+            'class' => 'validate-alphanum',
         ));
 
         $fieldset->addField('state_provinse', 'text', array(
-            'name' => 'state_provinse',
+            'name' => 'addresses[state_provinse]',
             'label' => Mage::helper('webinse_company')->__('State/Provinse'),
             'title' => Mage::helper('webinse_company')->__('State/Provinse'),
             'required' => true,
+            'class' => 'validate-alphanum',
         ));
 
         $fieldset->addField('zip_code', 'text', array(
-            'name' => 'zip_code',
+            'name' => 'addresses[zip_code]',
             'label' => Mage::helper('webinse_company')->__('Zip code'),
             'title' => Mage::helper('webinse_company')->__('Zip code'),
             'required' => true,
+            'class' => 'validate-number',
         ));
 
         $fieldset->addField('telephone', 'text', array(
-            'name' => 'telephone',
+            'name' => 'addresses[telephone]',
             'label' => Mage::helper('webinse_company')->__('Telephone'),
             'title' => Mage::helper('webinse_company')->__('Telephone'),
-            'required' => true,
+            'required' => false,
+            'class' => 'validate-number',
         ));
 
         $fieldset->addField('fax', 'text', array(
-            'name' => 'fax',
+            'name' => 'addresses[fax]',
             'label' => Mage::helper('webinse_company')->__('Telephone'),
             'title' => Mage::helper('webinse_company')->__('Telephone'),
-            'required' => true,
+            'required' => false,
+            'class' => 'validate-number',
         ));
 
         $fieldset->addField('vat_number', 'text', array(
-            'name' => 'vat_number',
+            'name' => 'addresses[vat_number]',
             'label' => Mage::helper('webinse_company')->__('VAT number'),
             'title' => Mage::helper('webinse_company')->__('VAT number'),
-            'required' => true,
+            'required' => false,
+            'class' => 'validate-alphanum',
         ));
 
         Mage::dispatchEvent('adminhtml_webinse_company_edit_tab_addres_prepare_form', array('form' => $form));
-        $form->setValues($model->getData());
+        $form->setValues($addresses->getData());
         $this->setForm($form);
 
         return parent::_prepareForm();

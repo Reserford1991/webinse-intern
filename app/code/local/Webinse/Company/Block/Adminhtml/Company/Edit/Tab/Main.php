@@ -11,7 +11,7 @@
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
 /**
- * Adminhtml company edit form block
+ * Adminhtml company edit form company information block
  *
  * @category    Webinse
  * @package     Webinse_Company
@@ -25,22 +25,22 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
 {
     protected function _prepareForm()
     {
-        $model = Mage::registry('current_company');
+        $company = Mage::registry('current_company');
 
         $form = new Varien_Data_Form();
 
         $form->setHtmlIdPrefix('company_');
 
-        $fieldset = $form->addFieldset('base_fieldset', array('legend'=>Mage::helper('webinse_company')->__('Address Information')));
+        $fieldset = $form->addFieldset('base_fieldset', array('legend' => Mage::helper('webinse_company')->__('Address Information')));
 
-        if ($model->getPageId()) {
-            $fieldset->addField('company_id', 'hidden', array(
-                'name' => 'company_id',
+        if ($company->getPageId()) {
+            $fieldset->addField('entity_id', 'hidden', array(
+                'name' => 'company[entity_id]',
             ));
         }
 
         $fieldset->addField('name', 'text', array(
-            'name'      => 'name',
+            'name'      => 'company[name]',
             'label'     => Mage::helper('webinse_company')->__('Company name'),
             'maxlength' => '250',
             'required'  => true,
@@ -48,7 +48,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
         ));
 
         $fieldset->addField('domains', 'text', array(
-            'name'      => 'domains',
+            'name'      => 'company[domains]',
             'label'     => Mage::helper('webinse_company')->__('Domains'),
             'maxlength' => '250',
             'required'  => true,
@@ -56,7 +56,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
         ));
 
         $fieldset->addField('contact_name', 'text', array(
-            'name'      => 'contact_name',
+            'name'      => 'company[contact_name]',
             'label'     => Mage::helper('webinse_company')->__('Contact name'),
             'maxlength' => '250',
             'required'  => true,
@@ -64,7 +64,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
         ));
 
         $fieldset->addField('office_phone', 'text', array(
-            'name'      => 'office_phone',
+            'name'      => 'company[office_phone]',
             'label'     => Mage::helper('webinse_company')->__('Office phone'),
             'maxlength' => '250',
             'required'  => true,
@@ -72,7 +72,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
         ));
 
         $fieldset->addField('mobile_phone', 'text', array(
-            'name'      => 'mobile_phone',
+            'name'      => 'company[mobile_phone]',
             'label'     => Mage::helper('webinse_company')->__('Mobile phone'),
             'maxlength' => '250',
             'required'  => true,
@@ -80,7 +80,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
         ));
 
         $fieldset->addField('street', 'text', array(
-            'name'      => 'street',
+            'name'      => 'company[street]',
             'label'     => Mage::helper('webinse_company')->__('Street'),
             'maxlength' => '250',
             'required'  => true,
@@ -88,7 +88,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
         ));
 
         $fieldset->addField('city', 'text', array(
-            'name'      => 'city',
+            'name'      => 'company[city]',
             'label'     => Mage::helper('webinse_company')->__('City'),
             'maxlength' => '250',
             'required'  => true,
@@ -96,7 +96,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
         ));
 
         $fieldset->addField('state', 'text', array(
-            'name'      => 'state',
+            'name'      => 'company[state]',
             'label'     => Mage::helper('webinse_company')->__('State'),
             'maxlength' => '250',
             'required'  => true,
@@ -104,7 +104,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
         ));
 
         $fieldset->addField('zip', 'text', array(
-            'name'      => 'zip',
+            'name'      => 'company[zip]',
             'label'     => Mage::helper('webinse_company')->__('Zip'),
             'maxlength' => '250',
             'required'  => true,
@@ -112,7 +112,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
         ));
 
         Mage::dispatchEvent('adminhtml_webinse_company_edit_tab_main_prepare_form', array('form' => $form));
-        $form->setValues($model->getData());
+        $form->setValues($company->getData());
         $this->setForm($form);
 
         return parent::_prepareForm();
@@ -156,16 +156,5 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
     public function isHidden()
     {
         return false;
-    }
-
-    /**
-     * Check permission for passed action
-     *
-     * @param string $action
-     * @return bool
-     */
-    protected function _isAllowedAction($action)
-    {
-        return Mage::getSingleton('admin/session')->isAllowed('cms/page/' . $action);
     }
 }
