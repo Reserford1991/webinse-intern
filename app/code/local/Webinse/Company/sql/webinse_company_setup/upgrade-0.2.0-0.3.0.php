@@ -21,16 +21,19 @@
  */
 $installer = $this;
 $installer->startSetup();
-$tableName = $installer->getTable('webinse_company/companies');
+$tableName = $installer->getTable('webinse_company/addresses');
 
 if (!($installer->getConnection()->isTableExists($tableName))) {
     $table = $installer->getConnection()
         ->newTable($tableName)
-        ->addColumn('company_id', Varien_Db_Ddl_Table::TYPE_INTEGER, 11, array(
+        ->addColumn('entity_id', Varien_Db_Ddl_Table::TYPE_INTEGER, 11, array(
             'unsigned' => true,
             'nullable' => false,
             'primary' => true,
             'identity' => true,
+        ))
+        ->addColumn('company_id', Varien_Db_Ddl_Table::TYPE_INTEGER, 11, array(
+            'nullable' => false,
         ))
         ->addColumn('first_name', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array(
             'nullable' => false,
@@ -61,7 +64,7 @@ if (!($installer->getConnection()->isTableExists($tableName))) {
         ))
         ->addForeignKey(
             $installer->getFkName(
-                'webinse_company/companies',
+                'webinse_company/addresses',
                 'company_id',
                 'webinse_company/company',
                 'entity_id'
