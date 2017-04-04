@@ -24,7 +24,7 @@ class Webinse_Company_Block_Company extends Mage_Core_Block_Template
 {
     public function getCustomerCompany()
     {
-        return Mage::getSingleton('customer/session')->getCustomer()->getCompanyId();;
+        return Mage::getSingleton('customer/session')->getCustomer()->getCompanyId();
     }
 
     public function loadCompany()
