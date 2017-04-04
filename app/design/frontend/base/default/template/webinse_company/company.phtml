@@ -1,0 +1,50 @@
+<?php
+/**
+ * Webinse
+ *
+ * PHP Version 5.6.23
+ *
+ * @category    Webinse
+ * @package     Webinse_Company
+ * @author      Webinse Team <info@webinse.com>
+ * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
+ * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+/**
+ * Template for Webinse_Company
+ *
+ * @category    Webinse
+ * @package     Webinse_Company
+ * @author      Webinse Team <info@webinse.com>
+ * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
+ * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+?>
+<h1>Company Information</h1>
+<hr>
+<div
+<p><strong>Company Name: </strong> <?php echo $this->loadCompany()->getName();?></p>
+<p><strong>Domains: </strong><?php echo $this->loadCompany()->getDomains();?></p>
+<p><strong>Contact Name: </strong><?php echo $this->loadCompany()->getContactName();?></p>
+<p><strong>Office Phone: </strong><?php echo $this->loadCompany()->getOfficePhone();?></p>
+<p><strong>Mobile Phone: </strong> <?php echo $this->loadCompany()->getMobilePhone();?></p>
+<p><strong>Street: </strong> <?php echo $this->loadCompany()->getStreet();?></p>
+<p><strong>City: </strong><?php echo $this->loadCompany()->getCity();?></p>
+<p><strong>State: </strong><?php echo $this->loadCompany()->getState();?></p>
+<p><strong>Zip: </strong> <?php echo $this->loadCompany()->getZip();?></p>
+</div>
+<hr>
+<div
+<p><strong>First Name: </strong> <?php echo $this->loadAddresses()->getFirstName();?></p>
+<p><strong>Last Name: </strong><?php echo $this->loadAddresses()->getLastName();?></p>
+<p><strong>Street Address: </strong><?php echo $this->loadAddresses()->getStreetAddress();?></p>
+<p><strong>City: </strong><?php echo $this->loadAddresses()->getCity();?></p>
+<p><strong>State Province: </strong> <?php echo $this->loadAddresses()->getStateProvinse();?></p>
+<p><strong>Zip Code: </strong> <?php echo $this->loadAddresses()->getZipCode();?></p>
+<p><strong>Telephone: </strong><?php echo $this->loadAddresses()->getTelephone();?></p>
+<p><strong>Fax: </strong><?php echo $this->loadAddresses()->getFax();?></p>
+<p><strong>VAT Number: </strong> <?php echo $this->loadAddresses()->getVatNumber();?></p>
+</div>
+<hr>
+
+

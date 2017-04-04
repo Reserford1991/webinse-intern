@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Frontend layout of module
+ *
+ * @category    Webinse
+ * @package     Webinse_Company
+ * @author      Webinse Team <info@webinse.com>
+ * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
+ * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
+ */
+-->
+<layout version="0.1.0">
+    <customer_account>        
+        <reference name="customer_account_navigation">           
+            <action method="addLink" translate="label" module="webinse_company">               
+                <name>companyinfo</name>
+                <path>company/company/index</path>
+                <label>Company Info</label>            
+            </action>               
+        </reference>              
+    </customer_account>
+    <company_company_index>
+        <update handle="customer_account"/>
+        <reference name="content">
+            <block type="webinse_company/company" name="company" as="company"
+                   template="webinse_company/company.phtml"/>
+        </reference>
+    </company_company_index>
+</layout>
+

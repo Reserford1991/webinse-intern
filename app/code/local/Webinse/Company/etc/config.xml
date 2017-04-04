@@ -72,6 +72,22 @@
                 </observers>
             </customer_save_before>
         </events>
+        <routers>
+            <company>
+                <use>standard</use>
+                <args>
+                    <module>Webinse_Company</module>
+                    <frontName>companyinfo</frontName>
+                </args>
+            </company>
+        </routers>
+        <layout>
+            <updates>
+                <webinse_company module="webinse_company">
+                    <file>webinse_company.xml</file>
+                </webinse_company>
+            </updates>
+        </layout>
     </frontend>
     <adminhtml>
         <layout>
