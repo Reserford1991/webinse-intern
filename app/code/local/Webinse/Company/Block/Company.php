@@ -24,22 +24,17 @@ class Webinse_Company_Block_Company extends Mage_Core_Block_Template
 {
     public function getCustomerCompany()
     {
-        $customerCompanyId = Mage::getSingleton('customer/session')->getCustomer()->getCompanyId();
-        return $customerCompanyId;
+        return Mage::getSingleton('customer/session')->getCustomer()->getCompanyId();;
     }
 
     public function loadCompany()
     {
-        $customer = $this->getCustomerCompany();
-        $companyInfo = Mage::getModel('webinse_company/company')->load($customer);
-        return $companyInfo;
+        return Mage::getModel('webinse_company/company')->load($this->getCustomerCompany());
     }
 
     public function loadAddresses()
     {
-        $customer = $this->getCustomerCompany();
-        $addressesInfo = Mage::getModel('webinse_company/addresses')->load($customer, 'company_id');
-        return $addressesInfo;
+        return Mage::getModel('webinse_company/addresses')->load($this->getCustomerCompany(), 'company_id');
     }
 
 }
