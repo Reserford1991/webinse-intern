@@ -13,7 +13,7 @@
 <config>
     <modules>
         <Webinse_Company>
-            <version>0.2.0</version>
+            <version>0.3.0</version>
         </Webinse_Company>
     </modules>
     <global>
@@ -28,6 +28,9 @@
                     <company>
                         <table>webinse_company</table>
                     </company>
+                    <addresses>
+                        <table>webinse_addresses</table>
+                    </addresses>
                 </entities>
             </webinse_company_resource>
         </models>
