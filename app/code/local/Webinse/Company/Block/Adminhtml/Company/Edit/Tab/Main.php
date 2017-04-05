@@ -95,12 +95,25 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
             'class'     => 'validate-alphanum',
         ));
 
-        $fieldset->addField('state', 'text', array(
+        $fieldset->addField('state', 'select', array(
             'name'      => 'company[state]',
             'label'     => Mage::helper('webinse_company')->__('State'),
             'maxlength' => '250',
             'required'  => true,
             'class'     => 'validate-alphanum',
+            'value'  => '4',
+            'values' => array(
+                '-1'=>'Please Select..',
+                '1' => array(
+                    'value'=> array(array('value'=>'2' , 'label' => 'Option2') , array('value'=>'3' , 'label' =>'Option3') ),
+                    'label' => 'Size'
+                ),
+                '2' => array(
+                    'value'=> array(array('value'=>'4' , 'label' => 'Option4') , array('value'=>'5' , 'label' =>'Option5') ),
+                    'label' => 'Color'
+                ),
+
+            ),
         ));
 
         $fieldset->addField('zip', 'text', array(

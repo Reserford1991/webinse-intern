@@ -77,7 +77,7 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Addres
             'label' => Mage::helper('webinse_company')->__('State/Provinse'),
             'title' => Mage::helper('webinse_company')->__('State/Provinse'),
             'required' => true,
-            'value' => 'USA',
+            'value' => 'US',
             'class' => 'validate-alphanum',
         ));
 
@@ -99,8 +99,8 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Addres
 
         $fieldset->addField('fax', 'text', array(
             'name' => 'addresses[fax]',
-            'label' => Mage::helper('webinse_company')->__('Telephone'),
-            'title' => Mage::helper('webinse_company')->__('Telephone'),
+            'label' => Mage::helper('webinse_company')->__('Fax'),
+            'title' => Mage::helper('webinse_company')->__('Fax'),
             'required' => false,
             'class' => 'validate-number',
         ));

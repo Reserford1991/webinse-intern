@@ -95,6 +95,8 @@ class Webinse_Company_Adminhtml_Webinse_Company_IndexController extends Mage_Adm
         if ($data) {
             try {
                 $company->addData($data['company'])->validate()->save();
+                $id = $company->getId();
+                $data['addresses']['company_id'] = $id;
                 $address->addData($data['addresses'])->validate()->save();
             } catch
             (Mage_Core_Exception $e) {

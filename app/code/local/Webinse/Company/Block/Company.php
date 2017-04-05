@@ -11,7 +11,7 @@
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
 /**
- * Block for Webinse_CalendarEvents
+ * Block for Webinse_Company
  *
  * @category    Webinse
  * @package     Webinse_Company
@@ -36,5 +36,4 @@ class Webinse_Company_Block_Company extends Mage_Core_Block_Template
     {
         return Mage::getModel('webinse_company/addresses')->load($this->getCustomerCompany(), 'company_id');
     }
-
 }

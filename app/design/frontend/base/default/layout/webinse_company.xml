@@ -27,5 +27,15 @@
                    template="webinse_company/company.phtml"/>
         </reference>
     </company_company_index>
+    <checkout_onepage_index>
+        <reference name='checkout.onepage.billing'>
+                <action method="setTemplate">
+                    <template>webinse_company/billing.phtml</template>
+                </action>
+        </reference>
+        <reference name='checkout.onepage'>
+            <block type='webinse_company/shipping' name='checkout.onepage.shipping' as='shipping' template='webinse_company/shipping.phtml'></block>
+        </reference>
+    </checkout_onepage_index>
 </layout>
 
