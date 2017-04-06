@@ -23,13 +23,11 @@ class Webinse_Company_Block_Shipping extends Mage_Checkout_Block_Onepage_Shippin
 {
     public function getCustomerCompany()
     {
-        //$customer = Mage::getSingleton('customer/session')->getCustomer()->getCompanyId();
         return Mage::getSingleton('customer/session')->getCustomer()->getCompanyId();
     }
 
     public function loadCompany()
     {
-        //$company = Mage::getModel('webinse_company/company')->load($this->getCustomerCompany());
         return Mage::getModel('webinse_company/company')->load($this->getCustomerCompany());
     }
 
@@ -38,24 +36,13 @@ class Webinse_Company_Block_Shipping extends Mage_Checkout_Block_Onepage_Shippin
         return Mage::getModel('webinse_company/addresses')->load($this->getCustomerCompany(), 'company_id');
     }
 
-    public function getCountryHtmlSelect($type)
+    public function getRegionName()
     {
-        $countryId = Mage::getModel('webinse_company/company')->load($this->getCustomerCompany())->getState();
-        if (is_null($countryId)) {
-            $countryId = Mage::helper('core')->getDefaultCountry();
-        }
-        $select = $this->getLayout()->createBlock('core/html_select')
-            ->setName($type.'[country_id]')
-            ->setId($type.':country_id')
-            ->setTitle(Mage::helper('checkout')->__('Country'))
-            ->setClass('validate-select')
-            ->setValue($countryId)
-            ->setOptions($this->getCountryOptions());
-        if ($type === 'shipping') {
-            $select->setExtraParams('onchange="if(window.shipping)shipping.setSameAsBilling(false);"');
-        }
-
-        return $select->getHtml();
+        return Mage::getModel('directory/region')->load($this->loadAddresses()->getRegion())->getName();
     }
 
+    public function getCountryName()
+    {
+        return Mage::getModel('directory/country')->loadByCode($this->loadAddresses()->getCountry())->getName();
+    }
 }

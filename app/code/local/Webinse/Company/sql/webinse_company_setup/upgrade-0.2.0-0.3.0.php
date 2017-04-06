@@ -47,7 +47,10 @@ if (!($installer->getConnection()->isTableExists($tableName))) {
         ->addColumn('city', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array(
             'nullable' => false,
         ))
-        ->addColumn('state_provinse', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array(
+        ->addColumn('state', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array(
+            'nullable' => false,
+        ))
+        ->addColumn('provinse', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array(
             'nullable' => false,
         ))
         ->addColumn('zip_code', Varien_Db_Ddl_Table::TYPE_INTEGER, 255, array(

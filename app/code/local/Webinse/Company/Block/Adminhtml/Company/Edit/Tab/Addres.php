@@ -64,6 +64,17 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Addres
             'class' => 'validate-alphanum',
         ));
 
+        $fieldset->addField('country', 'select', array(
+            'name' => 'addresses[country]',
+            'label' => Mage::helper('webinse_company')->__('Country'),
+            'title' => Mage::helper('webinse_company')->__('Country'),
+            'required' => true,
+            'values' => Mage::getModel('adminhtml/system_config_source_country')->toOptionArray(),
+            'class' => 'validate-alphanum',
+            'onchange' => 'getstate(this)',
+
+        ));
+
         $fieldset->addField('city', 'text', array(
             'name' => 'addresses[city]',
             'label' => Mage::helper('webinse_company')->__('City'),
@@ -72,14 +83,16 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Addres
             'class' => 'validate-alphanum',
         ));
 
-        $fieldset->addField('state_provinse', 'text', array(
-            'name' => 'addresses[state_provinse]',
-            'label' => Mage::helper('webinse_company')->__('State/Provinse'),
-            'title' => Mage::helper('webinse_company')->__('State/Provinse'),
-            'required' => true,
-            'value' => 'US',
-            'class' => 'validate-alphanum',
-        ));
+//        if (in_array($addresses['country'], explode(',', Mage::getStoreConfig('general/region/state_required')))) {
+            $fieldset->addField('region', 'select', array(
+                'name' => 'addresses[region]',
+                'label' => Mage::helper('webinse_company')->__('Region'),
+                'title' => Mage::helper('webinse_company')->__('Region'),
+                'required' => false,
+                'values' => Mage::getModel('adminhtml/system_config_source_allregion')->toOptionArray(),
+                'class' => 'validate-alphanum',
+            ));
+        //}
 
         $fieldset->addField('zip_code', 'text', array(
             'name' => 'addresses[zip_code]',
