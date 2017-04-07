@@ -1,0 +1,25 @@
+<div><?php $this->getCountries(); ?></div>
+
+<script>
+//    var country_value = document.getElementById("addresses_country").value;
+//    var country_required = document.getElementById("addresses_countryRequired").name;
+//    console.log(country_required);
+    //console.log(state);
+
+    $j.inArray();
+    $j("#addresses_country").on("change",function(){
+        var countries = "<?php echo $this->getCountries();?>";
+        //window.alert(countries);
+        //search($j(this).val());
+        if($j(this).val() === "AF"){
+            $j("#addresses_region").show()
+        }
+        else{
+            $j("#addresses_region").parent().parent().hide()
+        }
+    });
+
+    //$j(this).val()==="AF"
+    //country_required.search(country_value) == -1
+
+</script>

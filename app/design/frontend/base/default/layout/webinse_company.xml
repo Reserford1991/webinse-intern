@@ -23,8 +23,7 @@
     <company_company_index>
         <update handle="customer_account"/>
         <reference name="content">
-            <block type="webinse_company/company" name="company" as="company"
-                   template="webinse_company/company.phtml"/>
+            <block type="webinse_company/company" name="company" as="company" template="webinse_company/company.phtml"/>
         </reference>
     </company_company_index>
     <checkout_onepage_index>

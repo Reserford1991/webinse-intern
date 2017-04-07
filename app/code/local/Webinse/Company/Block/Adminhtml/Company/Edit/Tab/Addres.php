@@ -71,8 +71,6 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Addres
             'required' => true,
             'values' => Mage::getModel('adminhtml/system_config_source_country')->toOptionArray(),
             'class' => 'validate-alphanum',
-            'onchange' => 'getstate(this)',
-
         ));
 
         $fieldset->addField('city', 'text', array(
@@ -83,16 +81,22 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Addres
             'class' => 'validate-alphanum',
         ));
 
-//        if (in_array($addresses['country'], explode(',', Mage::getStoreConfig('general/region/state_required')))) {
-            $fieldset->addField('region', 'select', array(
-                'name' => 'addresses[region]',
-                'label' => Mage::helper('webinse_company')->__('Region'),
-                'title' => Mage::helper('webinse_company')->__('Region'),
-                'required' => false,
-                'values' => Mage::getModel('adminhtml/system_config_source_allregion')->toOptionArray(),
-                'class' => 'validate-alphanum',
-            ));
-        //}
+        $fieldset->addField('region', 'select', array(
+            'name' => 'addresses[region]',
+            'label' => Mage::helper('webinse_company')->__('Region'),
+            'title' => Mage::helper('webinse_company')->__('Region'),
+            'required' => false,
+            'values' => Mage::getModel('adminhtml/system_config_source_allregion')->toOptionArray(),
+            'class' => 'validate-alphanum',
+        ));
+
+        $fieldset->addField('region_id', 'text', array(
+            'name' => 'addresses[region_id]',
+            'label' => Mage::helper('webinse_company')->__('Region ID'),
+            'title' => Mage::helper('webinse_company')->__('Region ID'),
+            'required' => false,
+            'class' => 'validate-alphanum',
+        ));
 
         $fieldset->addField('zip_code', 'text', array(
             'name' => 'addresses[zip_code]',
@@ -125,6 +129,8 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Addres
             'required' => false,
             'class' => 'validate-alphanum',
         ));
+
+
 
         Mage::dispatchEvent('adminhtml_webinse_company_edit_tab_addres_prepare_form', array('form' => $form));
         $form->setValues($addresses->getData());
