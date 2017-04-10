@@ -26,11 +26,6 @@ class Webinse_Company_Block_Shipping extends Mage_Checkout_Block_Onepage_Shippin
         return Mage::getSingleton('customer/session')->getCustomer()->getCompanyId();
     }
 
-    public function loadCompany()
-    {
-        return Mage::getModel('webinse_company/company')->load($this->getCustomerCompany());
-    }
-
     public function loadAddresses()
     {
         return Mage::getModel('webinse_company/addresses')->load($this->getCustomerCompany(), 'company_id');

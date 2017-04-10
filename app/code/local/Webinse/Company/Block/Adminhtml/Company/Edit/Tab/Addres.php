@@ -92,8 +92,8 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Addres
 
         $fieldset->addField('region_id', 'text', array(
             'name' => 'addresses[region_id]',
-            'label' => Mage::helper('webinse_company')->__('Region ID'),
-            'title' => Mage::helper('webinse_company')->__('Region ID'),
+            'label' => Mage::helper('webinse_company')->__('Region'),
+            'title' => Mage::helper('webinse_company')->__('Region'),
             'required' => false,
             'class' => 'validate-alphanum',
         ));
