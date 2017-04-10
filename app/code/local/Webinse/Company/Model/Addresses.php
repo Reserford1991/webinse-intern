@@ -51,10 +51,6 @@ class Webinse_Company_Model_Addresses extends Mage_Core_Model_Abstract
             $error = true;
         }
 
-//        if (!Zend_Validate::is($this->getRegion(), 'Regex', array('/^[a-zA-Z0-9]+$/'))) {
-//            $error = true;
-//        }
-
         if (!Zend_Validate::is($this->getZipCode(), 'Regex', array('/^[0-9]+$/'))) {
             $error = true;
         }

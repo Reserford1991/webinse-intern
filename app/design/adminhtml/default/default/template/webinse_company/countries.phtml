@@ -6,8 +6,6 @@
     $j("#addresses_country").on("change", function () {
         var countries = "<?php echo $this->getCountries() ?>";
         var country_value = $j("#addresses_country").val();
-        console.log(country_value);
-        console.log(countries.search($j(this).val()));
         if (countries.search($j(this).val()) != -1) {
             $j("#addresses_region_id").parent().parent().hide();
             $j("#addresses_region").parent().parent().show();
