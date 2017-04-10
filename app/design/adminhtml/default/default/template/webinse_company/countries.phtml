@@ -1,25 +1,20 @@
 <div><?php $this->getCountries(); ?></div>
 
 <script>
-//    var country_value = document.getElementById("addresses_country").value;
-//    var country_required = document.getElementById("addresses_countryRequired").name;
-//    console.log(country_required);
-    //console.log(state);
-
-    $j.inArray();
-    $j("#addresses_country").on("change",function(){
-        var countries = "<?php echo $this->getCountries();?>";
-        //window.alert(countries);
-        //search($j(this).val());
-        if($j(this).val() === "AF"){
-            $j("#addresses_region").show()
+    $j("#addresses_region_id").parent().parent().hide();
+    $j("#addresses_region").parent().parent().hide();
+    $j("#addresses_country").on("change", function () {
+        var countries = "<?php echo $this->getCountries() ?>";
+        var country_value = $j("#addresses_country").val();
+        console.log(country_value);
+        console.log(countries.search($j(this).val()));
+        if (countries.search($j(this).val()) != -1) {
+            $j("#addresses_region_id").parent().parent().hide();
+            $j("#addresses_region").parent().parent().show();
         }
-        else{
-            $j("#addresses_region").parent().parent().hide()
+        else {
+            $j("#addresses_region_id").parent().parent().show();
+            $j("#addresses_region").parent().parent().hide();
         }
     });
-
-    //$j(this).val()==="AF"
-    //country_required.search(country_value) == -1
-
 </script>

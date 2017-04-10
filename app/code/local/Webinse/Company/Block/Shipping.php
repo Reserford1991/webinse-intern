@@ -38,6 +38,9 @@ class Webinse_Company_Block_Shipping extends Mage_Checkout_Block_Onepage_Shippin
 
     public function getRegionName()
     {
+        if (!$this->loadAddresses()->getRegion()){
+            return $this->loadAddresses()->getRegionId();
+        }
         return Mage::getModel('directory/region')->load($this->loadAddresses()->getRegion())->getName();
     }
 
