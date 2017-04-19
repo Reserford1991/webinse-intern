@@ -11,7 +11,7 @@
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
 /**
- * Block for Webinse_Company
+ * Adminhtml grid container block
  *
  * @category    Webinse
  * @package     Webinse_Company
@@ -19,21 +19,10 @@
  * @copyright   2017 Webinse Ltd. (https://www.webinse.com)
  * @license     http://opensource.org/licenses/OSL-3.0 The Open Software License 3.0
  */
-
-class Webinse_Company_Block_Company extends Mage_Core_Block_Template
+class Webinse_Company_Block_Adminhtml_Countries extends Mage_Adminhtml_Block_Template
 {
-    public function getCustomerCompany()
+    public function getCountries()
     {
-        return Mage::getSingleton('customer/session')->getCustomer()->getCompanyId();
-    }
-
-    public function loadCompany()
-    {
-        return Mage::getModel('webinse_company/company')->load($this->getCustomerCompany());
-    }
-
-    public function loadAddresses()
-    {
-        return Mage::getModel('webinse_company/addresses')->load($this->getCustomerCompany(), 'company_id');
+        return Mage::getStoreConfig('general/region/state_required');
     }
 }

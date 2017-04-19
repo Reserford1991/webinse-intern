@@ -33,6 +33,8 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
 
         $fieldset = $form->addFieldset('base_fieldset', array('legend' => Mage::helper('webinse_company')->__('Address Information')));
 
+        $country = Mage::getModel('directory/country')->getResourceCollection()->loadByStore()->toOptionArray(true);
+
         if ($company->getPageId()) {
             $fieldset->addField('entity_id', 'hidden', array(
                 'name' => 'company[entity_id]',
@@ -95,12 +97,13 @@ class Webinse_Company_Block_Adminhtml_Company_Edit_Tab_Main
             'class'     => 'validate-alphanum',
         ));
 
-        $fieldset->addField('state', 'text', array(
+        $fieldset->addField('state', 'select', array(
             'name'      => 'company[state]',
             'label'     => Mage::helper('webinse_company')->__('State'),
             'maxlength' => '250',
             'required'  => true,
             'class'     => 'validate-alphanum',
+            'values' => $country,
         ));
 
         $fieldset->addField('zip', 'text', array(
